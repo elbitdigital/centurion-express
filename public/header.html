@@ -6,6 +6,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <script src="dist/js/villa.min.js"></script>
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
+<link rel="stylesheet" href="dist/css/centurion.min.css"/>
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 <link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
@@ -14,13 +15,13 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-<body>
+<body class="grey-200">
 
 <header class="Header">
 
 	<div class="Header-background"></div>
 
-	<div class="Header-inner">
+	<div class="Header-inner container">
 
 		<div class="Brand Header-brand">
 
@@ -52,43 +53,45 @@
 
 		</div>
 
-		<nav class="Nav Header-nav">
+		<nav class="Navbar Header-nav">
 
-			<div class="Nav-background"></div>
+			<ul class="Menu">
 
-			<div class="Nav-inner">
+				<li class="MenuItem">
 
-				<ul class="Menu">
+					<a href="#" class="MenuItem-select-area">
 
-					<li class="MenuItem">
+						<span>Sobre</span>
 
-						<a href="#" class="MenuItem-select-area">
+					</a>
 
-							<span>Sobre</span>
+				</li>
 
-						</a>
+				<li class="MenuItem">
 
-					</li>
+					<a href="#" class="MenuItem-select-area">
 
-					<li class="MenuItem">
+						<span>Contato</span>
 
-						<a href="#" class="MenuItem-select-area">
+					</a>
 
-							<span>Contato</span>
+				</li>
 
-						</a>
-
-					</li>
-
-				</ul>
-
-			</div>
+			</ul>
 
 		</nav>
 
 	</div>
 
 </header>
+
+<script src="dist/js/centurion.min.js"></script>
+
+<script>
+
+	var logo = new Logo(document.getElementById('logo-header'), 'dist/svg/CenturionLogo.svg', false);
+
+</script>
 
 </body>
 

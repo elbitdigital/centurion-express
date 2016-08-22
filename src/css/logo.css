@@ -1,0 +1,48 @@
+
+/* Logo */
+
+.Logo {
+	height: 6em;
+}
+
+/* Logo svg */
+
+.Logo svg {
+	height: 100%;
+	width: 6em;
+	display: block;
+}
+
+/* Logo select area */
+
+.Logo-select-area {
+	height: 100%;
+	width: 100%;
+}
+
+/* Logo inner */
+
+.Logo-inner {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+@media (min-width: 48em) {
+
+	/* Logo */
+
+	.Logo {
+		height: 8em;
+	}
+
+	/* Logo svg */
+
+	.Logo svg {
+		height: 100%;
+		width: 8em;
+		display: block;
+	}
+
+}

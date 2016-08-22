@@ -1,0 +1,30 @@
+
+/* Menu Item */
+
+.MenuItem {
+	display: inline-block;
+	line-height: 2;
+	padding: 0 .75em;
+	max-width: 50%;
+	text-align: center;
+}
+
+/* Menu Item link style */
+
+.MenuItem a {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+/* Menu Item select area */
+
+.MenuItem-select-area {
+	height: 100%;
+	padding: .5em;
+	position: relative;
+	width: 100%;
+}
+
+.MenuItem-select-area:hover {
+	border-top: solid 1px #2c2c2c;
+}

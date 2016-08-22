@@ -1,0 +1,70 @@
+
+/* Header */
+
+.Header {
+	position: relative;
+	width: 100%;
+}
+
+/* Header background */
+
+.Header-background {
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+
+/* Header inner */
+
+.Header-inner {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	padding: 1em;
+	position: relative;
+	width: 100%;
+}
+
+/* Header brand */
+
+.Header-brand { }
+
+/* Header nav */
+
+.Header-nav { }
+
+
+@media (min-width: 48em) {
+
+	/* Header inner */
+
+	.Header-inner {
+		-webkit-flex-flow: row;
+		flex-flow: row;
+		-webkit-justify-content: space-around;
+		justify-content: space-around;
+		margin-top: .5em;
+	}
+
+}
+
+@media (min-width: 60em) {
+
+	/* Header inner */
+
+	.Header-inner {
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+	}
+
+}

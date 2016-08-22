@@ -1,0 +1,35 @@
+
+/* Info */
+
+.Info {
+	position: relative;
+	width: 100%;
+}
+
+/* Info background */
+
+.Info-background {
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+
+/* Info inner */
+
+.Info-inner {
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	position: relative;
+	width: 100%;
+}

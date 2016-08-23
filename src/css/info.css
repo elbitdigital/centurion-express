@@ -33,3 +33,24 @@
 	position: relative;
 	width: 100%;
 }
+
+@media (min-width: 48em) {
+
+	.Info-inner {
+		-webkit-align-items: center;
+		align-items: center;
+		-webkit-flex-flow: row;
+		flex-flow: row;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+	}
+
+	.Info-inner .Headline,
+    .Info-inner .Places {
+		max-width: 50%;
+		padding: 1em;
+		width: 50%;
+	}
+
+}
+

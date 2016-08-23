@@ -4,16 +4,25 @@
 .Headline {
 	position: relative;
 	width: 100%;
+	text-align: center;
 }
 
 /* Headline title */
 
 .Headline-title {
-
+	padding: .5em 0;
 }
 
 /* Headline subtitle */
 
 .Headline-subtitle {
+	padding: .5em 0;
+}
+
+@media (min-width: 48em) {
+
+	.Headline {
+		text-align: left;
+	}
 
 }

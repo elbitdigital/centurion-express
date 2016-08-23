@@ -2,7 +2,33 @@
 /* Covered Cities List */
 
 .CoveredCitiesList {
-
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+	margin-bottom: 1em;
 }
 
-.CoveredCitiesList-item { }
+.CoveredCitiesList-item {
+	border: solid 1px #000;
+	border-radius: 5px;
+	margin: .275em .1em;
+	padding: 0 .5em;
+	line-height: 1.725;
+}
+
+@media (min-width: 48em) {
+
+	.CoveredCitiesList {
+		-webkit-justify-content: flex-start;
+		justify-content: flex-start;
+	}
+
+}

@@ -5,11 +5,37 @@
 
 }
 
+.HeadlineContactItem:hover {
+	color: #c5322b;
+	fill: #c5322b;
+}
+
 /* Headline Contact Item link */
 
 .HeadlineContactItem-link {
-
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-flow: row;
+	flex-flow: row;
 }
 
-.HeadlineContactItem-link--email { }
-.HeadlineContactItem-link--phone { }
+.HeadlineContactItem-icon {
+	height: 20px;
+	position: relative;
+	width: 20px;
+	margin-right: .75em;
+}
+
+.HeadlineContactItem-icon svg {
+	height: 100%;
+	width: 100%;
+}
+
+

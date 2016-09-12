@@ -2,13 +2,15 @@
 /* Places */
 
 .Places {
-	width: 100%;
-	height: 100%;
 	background-color: #cecece;
+	height: 24em;
+	/*position: relative;*/
+	width: 100%;
 }
 
 /* Places map */
 
 .Places-map {
-
+	width: 100%;
+	height: 100%;
 }

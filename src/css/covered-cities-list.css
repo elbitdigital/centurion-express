@@ -13,7 +13,7 @@
 	flex-flow: row wrap;
 	-webkit-justify-content: center;
 	justify-content: center;
-	margin-bottom: 1em;
+	padding: 1.25em 0;
 }
 
 .CoveredCitiesList-item {

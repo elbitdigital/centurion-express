@@ -1,0 +1,834 @@
+/*!
+ * Elbit Centurion Express Project v0.0.1 (http://letsmowe.org/)
+ * Copyright 2013-2015 Elbit Developers
+ * Licensed under MIT (https://github.com/elbitdigital/base/blob/master/LICENSE)
+*/
+
+.container {
+  padding: 0 1em;
+  width: 100%;
+}
+
+@media (min-width: 60em) {
+  .container {
+    max-width: 60em;
+  }
+}
+
+@media (min-width: 72em) {
+  .container {
+    max-width: 72em;
+  }
+}
+/* Brand Title */
+
+.BrandTitle {
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/* Brand Title title */
+
+.BrandTitle-title {
+  margin-left: .5em;
+}
+
+/* Brand Title subtitle */
+
+
+/* Brand */
+
+.Brand {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+/* Button default */
+
+.Button {
+  background: #9e9e9e;
+  border-style: solid;
+  border-width: 1px 1px 3px 1px;
+  border-color: #9e9e9e #616161 #616161 #616161;
+  border-radius: 3px;
+  color: #212121;
+  font-size: .725em;
+  font-weight: 800;
+  height: 3em;
+  margin-top: .5em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100px;
+}
+
+/* Button hover state */
+
+.Button:hover {
+  opacity: 0.9;
+}
+
+/* Button pressed state */
+
+.Button:active {
+  background: #757575;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #757575 #616161 #616161 #616161;
+  border-radius: 3px;
+  color: #eeeeee;
+}
+
+/* Red button style */
+
+.Button-red {
+  background: #c5322b;
+  border-color: #c5322b #c62828 #c62828 #c62828;
+  color: #eee;
+}
+
+.Button-red:active {
+  background: #b71c1c;
+  border-color: #b71c1c #c62828 #c62828 #c62828;
+  color: #e0e0e0;
+}
+/* Contact Form Field */
+
+.ContactFormField {
+  border: solid 1px #bdbdbd;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 1.5em;
+  /*max-width: 24em;*/
+  overflow: hidden;
+  padding: 1.5em 1em 1.5em;
+  position: relative;
+  text-align: left;
+  -webkit-transition: border .3s, background .3s, padding .3s;
+  -moz-transition: border .3s, background .3s, padding .3s;
+  -ms-transition: border .3s, background .3s, padding .3s;
+  -o-transition: border .3s, background .3s, padding .3s;
+  transition: border .3s, background .3s, padding .3s;
+  width: 100%;
+}
+
+.ContactFormField--double {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+  width: 100%;
+}
+
+/* Contact Form message field (textarea) */
+
+.ContactFormField--message {
+  height: 6em;
+}
+
+/* Contact Form error field */
+
+.ContactFormField-error {
+  color: rgba(213,0,0,0.5);
+  display: none;
+  font-size: .875em;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding-top: .75em;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.ContactFormField.is-required.is-empty .ContactFormField-error {
+  display: block;
+}
+
+/* Contact Form Field input textarea */
+
+.ContactFormField input,
+.ContactFormField textarea {
+  font-size: 1em;
+  width: 100%;
+  padding: 0 .275em;
+}
+
+/* Contact Form Field label */
+
+.ContactFormField label {
+  font-size: .875em;
+  font-weight: 900;
+  text-transform: uppercase;
+  position: absolute;
+  -webkit-transition: transform .3s;
+  -moz-transition: transform .3s;
+  -ms-transition: transform .3s;
+  -o-transition: transform .3s;
+  transition: transform .3s;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  padding-top: .75em;
+  pointer-events: none;
+  top: 0;
+  width: 100%;
+}
+
+/* VALIDATION STYLES */
+
+.ContactFormField.is-required::after {
+  color: #0069ff;
+  content: '*';
+  display: block;
+  font-size: 25px;
+  width: 25px;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  z-index: 1;
+}
+
+.ContactFormField.is-empty::after {
+  color: #d50000;
+}
+
+.ContactFormField.is-valid::after {
+  display: none;
+}
+
+/* Contact Form Field focused style */
+
+.ContactFormField.is-valid {
+  border-color: #80d8ff;
+}
+
+.ContactFormField.has-focus {
+  border-color: #80d8ff;
+}
+
+/* Contact Form Field labeled style */
+
+.ContactFormField.has-label {
+  /*padding: 2.25em 1.5em .75em;*/
+  padding: 2.25em 1em .75em;
+}
+
+/* Contact Form Field labeled label style */
+
+.ContactFormField.has-label label {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* Contact Form Field empty style */
+
+.ContactFormField.is-empty {
+  border-color: #d50000;
+}
+
+/* Webkit fallback (hide placeholder on input focus) */
+
+.ContactFormField:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+/* Contact Form Field empty input/textarea style */
+
+.ContactFormField.is-empty:-moz-placeholder {
+  color: rgba(213,0,0,0.5);
+}
+
+/* ff 18- */
+
+.ContactFormField.is-empty:-ms-input-placeholder {
+  color: rgba(213,0,0,0.5);
+}
+
+.ContactFormField.is-empty::-webkit-input-placeholder {
+  color: rgba(213,0,0,0.5);
+}
+
+/* Contact Form Field empty input/textarea style (general) */
+
+.ContactFormField.is-empty input,
+.ContactFormField.is-empty textarea {
+  color: #d50000;
+  /*red-a700*/
+}
+
+@media (min-width: 48em) {
+  /* Contact Form Field */
+
+  .ContactFormField {
+    max-width: 100%;
+  }
+
+  /* Contact Form Field double */
+
+  .ContactFormField--double {
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+
+  /* Contact Form Field split */
+
+  .ContactFormField--split {
+    max-width: 49%;
+  }
+}
+/* Contact Form Status */
+
+.ContactFormStatus {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0 1em;
+}
+
+/* Contact Form Status text */
+
+.ContactFormStatus-text {
+  display: none;
+  font-size: .875em;
+  font-weight: 600;
+  margin-bottom: .5em;
+}
+
+.ContactForm.is-success .ContactFormStatus-text--success,
+.ContactForm.is-sending .ContactFormStatus-text--sending,
+.ContactForm.is-error .ContactFormStatus-text--error,
+.ContactForm.is-fail .ContactFormStatus-text--fail {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.ContactForm.is-sending .ContactFormStatus-text--sending {
+  -webkit-animation: sendAnimation infinite .6s ease;
+  -o-animation: sendAnimation infinite .6s ease;
+  animation: sendAnimation infinite .6s ease;
+}
+
+/* Send Animation keyframes */
+
+@-webkit-keyframes sendAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .48;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes sendAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .48;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes sendAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .48;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sendAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .48;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+/* Contact Form */
+
+.ContactForm {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+  width: 100%;
+}
+
+/* Contact Form input and textarea */
+
+.ContactForm input,
+.ContactForm textarea {
+  background: none;
+  border: 0;
+  font-family: sans-serif;
+}
+
+/* Contact Form textarea (hide auto scroll on ie) */
+
+.ContactForm textarea {
+  overflow: auto;
+  resize: none;
+}
+/* Contact */
+
+.Contact {
+  padding: 2em 0;
+  position: relative;
+}
+
+/* Contact background */
+
+.Contact-background {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+/* Contact inner */
+
+.Contact-inner {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Contact header */
+
+.Contact-header {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  margin-bottom: 1.5em;
+  width: 100%;
+}
+/* Covered Cities List */
+
+.CoveredCitiesList {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 1.25em 0;
+}
+
+.CoveredCitiesList-item {
+  border: solid 1px #000;
+  border-radius: 5px;
+  margin: .275em .1em;
+  padding: 0 .5em;
+  line-height: 1.725;
+}
+
+@media (min-width: 48em) {
+  .CoveredCitiesList {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+  }
+}
+/* Covered Cities */
+
+
+/* Header */
+
+.Header {
+  position: relative;
+  width: 100%;
+}
+
+/* Header background */
+
+.Header-background {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+/* Header inner */
+
+.Header-inner {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  padding: 1em;
+  position: relative;
+  width: 100%;
+}
+
+/* Header brand */
+
+
+
+/* Header nav */
+
+
+
+@media (min-width: 48em) {
+  /* Header inner */
+
+  .Header-inner {
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    margin-top: .5em;
+  }
+}
+
+@media (min-width: 60em) {
+  /* Header inner */
+
+  .Header-inner {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+/* Headline Contact Item */
+
+
+
+.HeadlineContactItem:hover {
+  color: #c5322b;
+  fill: #c5322b;
+}
+
+/* Headline Contact Item link */
+
+.HeadlineContactItem-link {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+}
+
+.HeadlineContactItem-icon {
+  height: 20px;
+  position: relative;
+  width: 20px;
+  margin-right: .75em;
+}
+
+.HeadlineContactItem-icon svg {
+  height: 100%;
+  width: 100%;
+}
+/* Headline Contact */
+
+.HeadlineContact {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: .5em 0;
+}
+
+@media (min-width: 48em) {
+  .HeadlineContact {
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+  }
+}
+/* Headline */
+
+.Headline {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Headline title */
+
+.Headline-title {
+  padding: .5em 0;
+}
+
+/* Headline subtitle */
+
+.Headline-subtitle {
+  padding: .5em 0;
+}
+
+@media (min-width: 48em) {
+  .Headline {
+    text-align: left;
+    padding-right: 1em;
+  }
+}
+/* Info */
+
+.Info {
+  position: relative;
+  width: 100%;
+}
+
+/* Info background */
+
+.Info-background {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+/* Info inner */
+
+.Info-inner {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  .Info-inner {
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .Info-inner .Headline,
+  .Info-inner .Places {
+    max-width: 50%;
+    /*padding: 1em;*/
+    width: 50%;
+  }
+}
+/* Logo */
+
+.Logo {
+  height: 6em;
+}
+
+/* Logo svg */
+
+.Logo svg {
+  height: 100%;
+  width: 6em;
+  display: block;
+}
+
+/* Logo select area */
+
+.Logo-select-area {
+  height: 100%;
+  width: 100%;
+}
+
+/* Logo inner */
+
+.Logo-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 48em) {
+  /* Logo */
+
+  .Logo {
+    height: 8em;
+  }
+
+  /* Logo svg */
+
+  .Logo svg {
+    height: 100%;
+    width: 8em;
+    display: block;
+  }
+}
+/* Menu Item */
+
+.MenuItem {
+  display: inline-block;
+  line-height: 2;
+  padding: 0 .75em;
+  max-width: 50%;
+  text-align: center;
+}
+
+/* Menu Item link style */
+
+.MenuItem a {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Menu Item select area */
+
+.MenuItem-select-area {
+  height: 100%;
+  padding: .5em;
+  position: relative;
+  width: 100%;
+}
+
+.MenuItem-select-area:hover {
+  border-top: solid 1px #2c2c2c;
+}
+/* Menu */
+
+.Menu {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  margin: 1.5em 0;
+}
+/* Navbar */
+
+.Navbar {
+  max-width: 20em;
+  position: relative;
+  width: 100%;
+}
+/* Places */
+
+.Places {
+  background-color: #cecece;
+  height: 24em;
+  /*position: relative;*/
+  width: 100%;
+}
+
+/* Places map */
+
+.Places-map {
+  width: 100%;
+  height: 100%;
+}

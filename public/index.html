@@ -15,9 +15,66 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-<body class="grey-200">
+<body class="grey-200 roboto">
 
-	<header class="Header">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTERWJb2fcG92T9EHtA7z2slLsSx8QOXs&callback=initMap"></script>
+<script>
+
+	function initMap() {
+		// Create a map object and specify the DOM element for display.
+		var map = new google.maps.Map(document.getElementById('cities-map'), {
+			center: { lat: -22.7857, lng: -50.2219 },
+			scrollwheel: false,
+			zoom: 9,
+			zoomControl: true,
+			mapTypeControl: false,
+			scaleControl: false,
+			streetViewControl: true,
+			rotateControl: false
+		});
+
+		setMarkers(map);
+	}
+
+	var cities = [
+		//http://jsfiddle.net/salman/ZW9jP/4/
+		//nome, lat, long
+		['Assis', -22.6578, -50.4197],
+		['Ourinhos', -22.9780, -49.8680],
+		['Marília', -22.2169, -49.9500],
+		['Palmital', -22.7857, -50.2219],
+		['Bauru', -22.3134, -49.0587],
+		['Presidente Prudente', -22.1235, -51.3940],
+		['Pirajú', -23.1931, -49.3835]
+	];
+
+	function setMarkers(map) {
+
+		var markers = [];
+		for (var i = 0; i < cities.length; i++) {
+
+			var city = cities[i];
+			var marker = new google.maps.Marker({
+				position: {lat: city[1], lng: city[2]},
+				map: map,
+				title: city[0]
+			});
+
+			markers.push(marker);
+
+		}
+
+		var markerCluster = new MarkerClusterer(map, markers, {
+			imagePath: 'dist/img/m'
+		});
+
+	}
+
+//	google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<header class="Header">
 
 		<div class="Header-background"></div>
 
@@ -95,11 +152,7 @@
 
 				<div class="Headline">
 
-					<h2 class="Headline-title">CONTRATE NOSSOS SERVIÇOS! LIGUE DJÁ!</h2>
-
-					<p class="Headline-subtitle">
-						Realizamos entregas por toda a região do centro-oeste paulista e norte paranaense.
-					</p>
+					<h2 class="Headline-title">RÁPIDO E PROFISSIONAL.<br> TODOS OS DIAS DA SEMANA.</h2>
 
 					<ul class="HeadlineContact">
 
@@ -107,7 +160,17 @@
 
 							<a href="#" class="HeadlineContactItem-link HeadlineContactItem-link--phone">
 
-								<i class="icon-phone"></i>
+								<div class="HeadlineContactItem-icon icon--phone">
+
+									<?xml version="1.0" encoding="windows-1252"?>
+									<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+									<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="401.998px" height="401.998px" viewBox="0 0 401.998 401.998" style="enable-background:new 0 0 401.998 401.998;" xml:space="preserve">
+									<g>
+										<path d="M401.129,311.475c-1.137-3.426-8.371-8.473-21.697-15.129c-3.61-2.098-8.754-4.949-15.41-8.566   c-6.662-3.617-12.709-6.95-18.13-9.996c-5.432-3.045-10.521-5.995-15.276-8.846c-0.76-0.571-3.139-2.234-7.136-5   c-4.001-2.758-7.375-4.805-10.14-6.14c-2.759-1.327-5.473-1.995-8.138-1.995c-3.806,0-8.56,2.714-14.268,8.135   c-5.708,5.428-10.944,11.324-15.7,17.706c-4.757,6.379-9.802,12.275-15.126,17.7c-5.332,5.427-9.713,8.138-13.135,8.138   c-1.718,0-3.86-0.479-6.427-1.424c-2.566-0.951-4.518-1.766-5.858-2.423c-1.328-0.671-3.607-1.999-6.845-4.004   c-3.244-1.999-5.048-3.094-5.428-3.285c-26.075-14.469-48.438-31.029-67.093-49.676c-18.649-18.658-35.211-41.019-49.676-67.097   c-0.19-0.381-1.287-2.19-3.284-5.424c-2-3.237-3.333-5.518-3.999-6.854c-0.666-1.331-1.475-3.283-2.425-5.852   s-1.427-4.709-1.427-6.424c0-3.424,2.713-7.804,8.138-13.134c5.424-5.327,11.326-10.373,17.7-15.128   c6.379-4.755,12.275-9.991,17.701-15.699c5.424-5.711,8.136-10.467,8.136-14.273c0-2.663-0.666-5.378-1.997-8.137   c-1.332-2.765-3.378-6.139-6.139-10.138c-2.762-3.997-4.427-6.374-4.999-7.139c-2.852-4.755-5.799-9.846-8.848-15.271   c-3.049-5.424-6.377-11.47-9.995-18.131c-3.615-6.658-6.468-11.799-8.564-15.415C98.986,9.233,93.943,1.997,90.516,0.859   C89.183,0.288,87.183,0,84.521,0c-5.142,0-11.85,0.95-20.129,2.856c-8.282,1.903-14.799,3.899-19.558,5.996   c-9.517,3.995-19.604,15.605-30.264,34.826C4.863,61.566,0.01,79.271,0.01,96.78c0,5.135,0.333,10.131,0.999,14.989   c0.666,4.853,1.856,10.326,3.571,16.418c1.712,6.09,3.093,10.614,4.137,13.56c1.045,2.948,2.996,8.229,5.852,15.845   c2.852,7.614,4.567,12.275,5.138,13.988c6.661,18.654,14.56,35.307,23.695,49.964c15.03,24.362,35.541,49.539,61.521,75.521   c25.981,25.98,51.153,46.49,75.517,61.526c14.655,9.134,31.314,17.032,49.965,23.698c1.714,0.568,6.375,2.279,13.986,5.141   c7.614,2.854,12.897,4.805,15.845,5.852c2.949,1.048,7.474,2.43,13.559,4.145c6.098,1.715,11.566,2.905,16.419,3.576   c4.856,0.657,9.853,0.996,14.989,0.996c17.508,0,35.214-4.856,53.105-14.562c19.219-10.656,30.826-20.745,34.823-30.269   c2.102-4.754,4.093-11.273,5.996-19.555c1.909-8.278,2.857-14.985,2.857-20.126C401.99,314.814,401.703,312.819,401.129,311.475z"/>
+									</g>
+								</svg>
+
+								</div>
 
 								<span>+55 18 3351-5923</span>
 
@@ -119,7 +182,19 @@
 
 							<a href="#" class="HeadlineContactItem-link HeadlineContactItem-link--email">
 
-								<i class="icon-email"></i>
+								<div class="HeadlineContactItem-icon icon--envelope">
+
+									<?xml version="1.0" encoding="windows-1252"?>
+									<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+									<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+									<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="511.626px" height="511.626px" viewBox="0 0 511.626 511.626" style="enable-background:new 0 0 511.626 511.626;" xml:space="preserve">
+									<g>
+										<path d="M49.106,178.729c6.472,4.567,25.981,18.131,58.528,40.685c32.548,22.554,57.482,39.92,74.803,52.099    c1.903,1.335,5.946,4.237,12.131,8.71c6.186,4.476,11.326,8.093,15.416,10.852c4.093,2.758,9.041,5.852,14.849,9.277    c5.806,3.422,11.279,5.996,16.418,7.7c5.14,1.718,9.898,2.569,14.275,2.569h0.287h0.288c4.377,0,9.137-0.852,14.277-2.569    c5.137-1.704,10.615-4.281,16.416-7.7c5.804-3.429,10.752-6.52,14.845-9.277c4.093-2.759,9.229-6.376,15.417-10.852    c6.184-4.477,10.232-7.375,12.135-8.71c17.508-12.179,62.051-43.11,133.615-92.79c13.894-9.703,25.502-21.411,34.827-35.116    c9.332-13.699,13.993-28.07,13.993-43.105c0-12.564-4.523-23.319-13.565-32.264c-9.041-8.947-19.749-13.418-32.117-13.418H45.679    c-14.655,0-25.933,4.948-33.832,14.844C3.949,79.562,0,91.934,0,106.779c0,11.991,5.236,24.985,15.703,38.974    C26.169,159.743,37.307,170.736,49.106,178.729z"/>
+										<path d="M483.072,209.275c-62.424,42.251-109.824,75.087-142.177,98.501c-10.849,7.991-19.65,14.229-26.409,18.699    c-6.759,4.473-15.748,9.041-26.98,13.702c-11.228,4.668-21.692,6.995-31.401,6.995h-0.291h-0.287    c-9.707,0-20.177-2.327-31.405-6.995c-11.228-4.661-20.223-9.229-26.98-13.702c-6.755-4.47-15.559-10.708-26.407-18.699    c-25.697-18.842-72.995-51.68-141.896-98.501C17.987,202.047,8.375,193.762,0,184.437v226.685c0,12.57,4.471,23.319,13.418,32.265    c8.945,8.949,19.701,13.422,32.264,13.422h420.266c12.56,0,23.315-4.473,32.261-13.422c8.949-8.949,13.418-19.694,13.418-32.265    V184.437C503.441,193.569,493.927,201.854,483.072,209.275z"/>
+									</g>
+								</svg>
+
+								</div>
 
 								<span>contato@centurion.com</span>
 
@@ -195,15 +270,96 @@
 
 				<div class="Places">
 
-					<div id="mapa" class="Places-map grey-500">
+					<div id="cities-map" class="Places-map"></div>
 
-						<span>teste</span>
-						<!-- img / div / frame -->
-						<!-- mapa com a localização física da empresa e das localidades que ela atende -->
+				</div>
+
+			</div>
+
+		</section>
+
+		<section id="contato" class="Contact">
+
+			<div class="Contact-background"></div>
+
+			<div class="Contact-inner container">
+
+				<header class="Contact-header">
+
+					<h2>Envie uma mensagem</h2>
+
+				</header>
+
+				<form id="cForm" class="ContactForm">
+
+					<div class="ContactFormField--double">
+
+						<div class="ContactFormField ContactFormField--split">
+
+							<label for="cName">NOME</label>
+							<input id="cName" type="text" autocomplete="off" class="ContactFormField-input" placeholder="NOME"/>
+
+						</div>
+
+						<div class="ContactFormField ContactFormField--split">
+
+							<label for="cEmail">EMAIL</label>
+							<input id="cEmail" type="email" autocomplete="off" class="ContactFormField-input" placeholder="EMAIL"/>
+
+						</div>
 
 					</div>
 
-				</div>
+					<div class="ContactFormField">
+
+						<label for="cMessage">MENSAGEM</label>
+						<textarea id="cMessage" spellcheck="false" class="ContactFormField-input ContactFormField--message" placeholder="MENSAGEM"></textarea>
+
+					</div>
+
+					<div class="ContactFormStatus">
+
+					<span class="ContactFormStatus-text ContactFormStatus-text--sending font-light-blue-a700">
+						Enviando...
+					</span>
+
+						<span class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700">
+						Enviado com sucesso!
+					</span>
+
+						<span class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700">
+						Não foi possível enviar, verifique os campos e tente novamente.
+					</span>
+
+						<span class="ContactFormStatus-text ContactFormStatus-text--fail font-red-a700">
+						Houve algum problema, tentando novamente...
+					</span>
+
+					</div>
+
+					<div class="ContactFormButton">
+
+						<button id="cSubmit" type="submit" value="Enviar" class="Button Button-red ContactFormField-button">
+
+							<span>Enviar</span>
+
+						</button>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</section>
+
+		<section id="extra" class="Extra">
+
+			<div class="Extra-background"></div>
+
+			<div class="Extra-inner container">
+
+				<!-- extra de acordo c/ requisito do cliente (pode ser alguma seção importante posteriormente) -->
 
 			</div>
 
@@ -216,6 +372,10 @@
 	<script>
 
 		var logo = new Logo(document.getElementById('logo-header'), 'dist/svg/CenturionLogo.svg', false);
+
+		var requiredFields = document.querySelectorAll('.ContactFormField');
+		for (var i = requiredFields.length; i--; )
+			requiredFields[i].requiredField = new RequiredField(requiredFields[i], '.ContactFormField-input');
 
 	</script>
 

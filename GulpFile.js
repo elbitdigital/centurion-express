@@ -39,7 +39,7 @@ const tinypngToken = false;
 
 var source = {
 	content: '*',
-	location: 'src/'
+	location: '_src/'
 };
 
 source.css = {

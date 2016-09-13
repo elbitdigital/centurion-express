@@ -2,8 +2,8 @@
 /* Contact Form Field */
 
 .ContactFormField {
-	border: solid 1px #bdbdbd;
-	border-radius: 3px;
+	border-bottom: solid 2px #bdbdbd;
+	border-radius: 1px;
 	display: block;
 	margin-bottom: 1.5em;
 	/*max-width: 24em;*/

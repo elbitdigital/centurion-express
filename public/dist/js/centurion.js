@@ -1567,10 +1567,25 @@ var RequiredField = (function () {
 
 		this.onInput = function () {
 
+			// current
+			// if (self.input.viewport.value) {
+			// 	self.viewport.classList.remove('is-empty');
+			// 	self.viewport.classList.add('has-label');
+			// 	self.viewport.classList.add('is-valid');
+			// } else {
+			// 	self.viewport.classList.remove('has-label');
+			// 	self.viewport.classList.remove('is-valid');
+			// }
+
 			if (self.input.viewport.value) {
 				self.viewport.classList.remove('is-empty');
 				self.viewport.classList.add('has-label');
-				self.viewport.classList.add('is-valid');
+				if (self.validateInput(self.input.viewport)) {
+					self.viewport.classList.add('is-valid');
+				} else {
+					self.viewport.classList.remove('is-valid');
+					self.viewport.classList.add('is-empty');
+				}
 			} else {
 				self.viewport.classList.remove('has-label');
 				self.viewport.classList.remove('is-valid');
@@ -1620,6 +1635,26 @@ var RequiredField = (function () {
 		this.input.viewport = this.viewport.querySelector(this.fieldClass);
 
 		return !!this.input.viewport;
+
+	};
+
+	/**
+	 * Validate input element values
+	 * @return {boolean}
+	 */
+	RequiredField.prototype.validateInput = function (input) {
+
+		/* Create verification for email and phone */
+
+		if (input.id == "cEmail") {
+			console.log('Alguma validação email');
+			return false;
+		} else if (input.id == "cPhone") {
+			console.log('Alguma validação telefone');
+			return false;
+		}
+
+		return true;
 
 	};
 

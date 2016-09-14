@@ -33,21 +33,21 @@
 
 				<div class="ContactFormField--multiple">
 
-					<div class="ContactFormField ContactFormField--split">
+					<div class="ContactFormField ContactFormField--split" data-empty="Informe o nome">
 
 						<label for="cName">NOME</label>
 						<input id="cName" type="text" autocomplete="off" class="ContactFormField-input" placeholder="NOME"/>
 
 					</div>
 
-					<div class="ContactFormField ContactFormField--split is-required-one">
+					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe o email">
 
 						<label for="cEmail">EMAIL</label>
-						<input id="cEmail" type="text" autocomplete="off" class="ContactFormField-input" placeholder="EMAIL"/>
+						<input id="cEmail" type="email" autocomplete="off" class="ContactFormField-input" placeholder="EMAIL"/>
 
 					</div>
 
-					<div class="ContactFormField ContactFormField--split is-required-one">
+					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe o telefone">
 
 						<label for="cPhone">TELEFONE</label>
 						<input id="cPhone" type="text" autocomplete="off" class="ContactFormField-input" placeholder="TELEFONE"/>
@@ -56,7 +56,7 @@
 
 				</div>
 
-				<div class="ContactFormField">
+				<div class="ContactFormField" data-empty="Informe a mensagem">
 
 					<label for="cMessage">MENSAGEM</label>
 					<textarea id="cMessage" class="ContactFormField-input ContactFormField--message" placeholder="MENSAGEM"></textarea>

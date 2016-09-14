@@ -208,8 +208,8 @@
   width: 100%;
 }
 
-.ContactFormField.is-required.is-empty .ContactFormField-error,
-.ContactFormField.is-required-one.is-empty .ContactFormField-error {
+.ContactFormField.is-required.is-error .ContactFormField-error,
+.ContactFormField.is-required-one.is-error .ContactFormField-error {
   display: block;
 }
 
@@ -218,7 +218,7 @@
 .ContactFormField.is-required::after {
   color: #0069ff;
   content: '*';
-  display: block;
+  display: none;
   font-size: 20px;
   width: 25px;
   position: absolute;
@@ -230,7 +230,7 @@
 .ContactFormField.is-required-one::after {
   color: #0069ff;
   content: '+';
-  display: block;
+  display: none;
   font-size: 20px;
   width: 25px;
   position: absolute;
@@ -239,7 +239,11 @@
   z-index: 1;
 }
 
-.ContactFormField.is-empty::after {
+.ContactFormField.is-required-one.is-error::after {
+  display: block;
+}
+
+.ContactFormField.is-error::after {
   color: #d50000;
 }
 
@@ -276,7 +280,7 @@
 
 /* Contact Form Field empty style */
 
-.ContactFormField.is-empty {
+.ContactFormField.is-error {
   border-color: #d50000;
 }
 
@@ -288,24 +292,24 @@
 
 /* Contact Form Field empty input/textarea style */
 
-.ContactFormField.is-empty:-moz-placeholder {
+.ContactFormField.is-error:-moz-placeholder {
   color: rgba(213,0,0,0.5);
 }
 
 /* ff 18- */
 
-.ContactFormField.is-empty:-ms-input-placeholder {
+.ContactFormField.is-error:-ms-input-placeholder {
   color: rgba(213,0,0,0.5);
 }
 
-.ContactFormField.is-empty::-webkit-input-placeholder {
+.ContactFormField.is-error::-webkit-input-placeholder {
   color: rgba(213,0,0,0.5);
 }
 
 /* Contact Form Field empty input/textarea style (general) */
 
-.ContactFormField.is-empty input,
-.ContactFormField.is-empty textarea {
+.ContactFormField.is-error input,
+.ContactFormField.is-error textarea {
   color: #d50000;
   /*red-a700*/
 }

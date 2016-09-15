@@ -26,6 +26,19 @@
 	font-family: sans-serif;
 }
 
+/* Contact Form row */
+
+.ContactForm-row {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	width: 100%;
+}
+
 /* Contact Form textarea (hide auto scroll on ie) */
 
 .ContactForm textarea {

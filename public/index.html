@@ -457,19 +457,26 @@
 
 				<form id="cForm" class="ContactForm">
 
-					<div class="ContactFormField--double">
+					<div class="ContactForm-row">
 
-						<div class="ContactFormField ContactFormField--split">
+						<div class="ContactFormField ContactFormField--split" data-empty="Informe o nome">
 
 							<label for="cName">NOME</label>
-							<input id="cName" type="text" autocomplete="off" class="ContactFormField-input" placeholder="Seu nome"/>
+							<input id="cName" type="text" autocomplete="off" class="ContactFormField-input" placeholder="NOME"/>
 
 						</div>
 
-						<div class="ContactFormField ContactFormField--split">
+						<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe o email">
 
 							<label for="cEmail">EMAIL</label>
-							<input id="cEmail" type="email" autocomplete="off" class="ContactFormField-input" placeholder="E-mail"/>
+							<input id="cEmail" type="email" autocomplete="off" class="ContactFormField-input" placeholder="EMAIL"/>
+
+						</div>
+
+						<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe o telefone">
+
+							<label for="cPhone">TELEFONE</label>
+							<input id="cPhone" type="text" autocomplete="off" class="ContactFormField-input" placeholder="TELEFONE"/>
 
 						</div>
 

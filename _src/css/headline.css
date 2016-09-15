@@ -7,23 +7,42 @@
 	text-align: center;
 }
 
-/* Headline title */
+/* Headline lead */
 
-.Headline-title {
-	padding: .5em 0;
+.Headline-lead {
+	font-size: 1.5em;
+	line-height: 1.25;
+	font-weight: 700;
 }
 
-/* Headline subtitle */
+/* Headline lead strong */
 
-.Headline-subtitle {
-	padding: .5em 0;
+.Headline-lead strong {
+	display: block;
+	font-size: 1.3125em;
+	font-weight: 900;
 }
 
 @media (min-width: 48em) {
 
 	.Headline {
 		text-align: left;
-		padding-right: 1em;
+	}
+
+}
+
+@media (min-width: 60em) {
+
+	.Headline {
+		padding: 3em 1em 0 3em;
+	}
+
+	.Headline-lead {
+		font-size: 3em;
+	}
+
+	.Headline-lead strong {
+		display: block;
 	}
 
 }

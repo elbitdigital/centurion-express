@@ -82,6 +82,35 @@
   display: -webkit-flex;
   display: flex;
 }
+
+/* Brand title */
+
+.Brand-title {
+  padding: .5em 0 0 1em;
+}
+
+/* Brand title h1 */
+
+.Brand-title h1 {
+  line-height: 1.1;
+  font-size: 1.125em;
+  font-weight: 700;
+}
+
+/* Brand title span */
+
+.Brand-title span {
+  display: block;
+  font-size: 1.5em;
+  letter-spacing: -.5pt;
+  text-transform: uppercase;
+}
+
+@media (min-width: 60em) {
+  .Brand-title h1 {
+    font-size: 1.3125em;
+  }
+}
 /* Button default */
 
 .Button {
@@ -613,6 +642,10 @@
 
 
 
+.HeadlineContactItem:first-of-type {
+  margin-right: 1em;
+}
+
 .HeadlineContactItem:hover {
   color: #c5322b;
   fill: #c5322b;
@@ -648,17 +681,17 @@
 /* Headline Contact */
 
 .HeadlineContact {
-  -webkit-align-items: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-flow: column;
-  flex-flow: column;
-  -webkit-justify-content: center;
-  justify-content: center;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
   padding: .5em 0;
 }
 
@@ -676,22 +709,39 @@
   text-align: center;
 }
 
-/* Headline title */
+/* Headline lead */
 
-.Headline-title {
-  padding: .5em 0;
+.Headline-lead {
+  font-size: 1.5em;
+  line-height: 1.25;
+  font-weight: 700;
 }
 
-/* Headline subtitle */
+/* Headline lead strong */
 
-.Headline-subtitle {
-  padding: .5em 0;
+.Headline-lead strong {
+  display: block;
+  font-size: 1.3125em;
+  font-weight: 900;
 }
 
 @media (min-width: 48em) {
   .Headline {
     text-align: left;
-    padding-right: 1em;
+  }
+}
+
+@media (min-width: 60em) {
+  .Headline {
+    padding: 3em 1em 0 3em;
+  }
+
+  .Headline-lead {
+    font-size: 3em;
+  }
+
+  .Headline-lead strong {
+    display: block;
   }
 }
 /* Info */
@@ -731,8 +781,8 @@
 
 @media (min-width: 48em) {
   .Info-inner {
-    -webkit-align-items: center;
-    align-items: center;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
     -webkit-flex-flow: row;
     flex-flow: row;
     -webkit-justify-content: space-between;
@@ -776,6 +826,26 @@
   height: 100%;
 }
 
+.Logo #CenturionLogoPlace-main {
+  fill: #b71c1c;
+}
+
+.Logo #CenturionLogoPlace-circle {
+  fill: #ffffff;
+}
+
+.Logo #CenturionLogoPlace-c {
+  fill: #212121;
+}
+
+.Logo #CenturionLogoGlobo {
+  fill: #212121;
+}
+
+.Logo #CenturionLogoMoon {
+  fill: #b71c1c;
+}
+
 @media (min-width: 48em) {
   /* Logo */
 
@@ -786,8 +856,7 @@
   /* Logo svg */
 
   .Logo svg {
-    height: 100%;
-    width: 8em;
+    height: 8em;
     display: block;
   }
 }

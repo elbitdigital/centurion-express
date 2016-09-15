@@ -29,6 +29,26 @@
 	height: 100%;
 }
 
+.Logo #CenturionLogoPlace-main {
+	fill: #b71c1c;
+}
+
+.Logo #CenturionLogoPlace-circle {
+	fill: #ffffff;
+}
+
+.Logo #CenturionLogoPlace-c {
+	fill: #212121;
+}
+
+.Logo #CenturionLogoGlobo {
+	fill: #212121;
+}
+
+.Logo #CenturionLogoMoon {
+	fill: #b71c1c;
+}
+
 @media (min-width: 48em) {
 
 	/* Logo */
@@ -40,8 +60,7 @@
 	/* Logo svg */
 
 	.Logo svg {
-		height: 100%;
-		width: 8em;
+		height: 8em;
 		display: block;
 	}
 

@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="" class="open-sans">
 <meta charset="UTF-8">
 <title>Centurion Express</title>
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script>
+	(function(d) {
+		var config = {
+					kitId: 'ywg5ztt',
+					scriptTimeout: 3000,
+					async: true
+				},
+				h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+	})(document);
+</script>
 <script src="dist/js/villa.min.js"></script>
 <link rel="stylesheet" href="dist/css/villa.min.css"/>
 <link rel="stylesheet" href="dist/css/centurion.min.css"/>
@@ -15,7 +25,7 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
-<body class="grey-200 roboto">
+<body class="grey-200 font-grey-800">
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTERWJb2fcG92T9EHtA7z2slLsSx8QOXs&callback=initMap"></script>
 <script>
@@ -23,29 +33,232 @@
 	function initMap() {
 		// Create a map object and specify the DOM element for display.
 		var map = new google.maps.Map(document.getElementById('cities-map'), {
-			center: { lat: -22.7857, lng: -50.2219 },
+			center: { lat: -22.40640442, lng: -50.25200317 },
 			scrollwheel: false,
-			zoom: 9,
+			zoom: 8,
 			zoomControl: true,
 			mapTypeControl: false,
 			scaleControl: false,
-			streetViewControl: true,
-			rotateControl: false
+			streetViewControl: false,
+			rotateControl: false,
+			styles: [
+				{
+					"featureType": "administrative",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#444444"
+						}
+					]
+				},
+				{
+					"featureType": "landscape",
+					"elementType": "all",
+					"stylers": [
+						{
+							"color": "#f2f2f2"
+						}
+					]
+				},
+				{
+					"featureType": "poi",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "road",
+					"elementType": "all",
+					"stylers": [
+						{
+							"saturation": -100
+						},
+						{
+							"lightness": 45
+						}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "simplified"
+						}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "geometry",
+					"stylers": [
+						{
+							"visibility": "simplified"
+						},
+						{
+							"color": "#ff6a6a"
+						},
+						{
+							"lightness": "0"
+						}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "labels.text",
+					"stylers": [
+						{
+							"visibility": "on"
+						}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "labels.icon",
+					"stylers": [
+						{
+							"visibility": "on"
+						}
+					]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "on"
+						}
+					]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "geometry.fill",
+					"stylers": [
+						{
+							"color": "#ff6a6a"
+						},
+						{
+							"lightness": "75"
+						}
+					]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "labels.icon",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "road.local",
+					"elementType": "geometry.fill",
+					"stylers": [
+						{
+							"lightness": "75"
+						}
+					]
+				},
+				{
+					"featureType": "transit",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "transit.line",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "on"
+						}
+					]
+				},
+				{
+					"featureType": "transit.station.bus",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "on"
+						}
+					]
+				},
+				{
+					"featureType": "transit.station.rail",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "on"
+						}
+					]
+				},
+				{
+					"featureType": "transit.station.rail",
+					"elementType": "labels.icon",
+					"stylers": [
+						{
+							"weight": "0.01"
+						},
+						{
+							"hue": "#ff0028"
+						},
+						{
+							"lightness": "0"
+						}
+					]
+				},
+				{
+					"featureType": "water",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "on"
+						},
+						{
+							"color": "#80e4d8"
+						},
+						{
+							"lightness": "25"
+						},
+						{
+							"saturation": "-23"
+						}
+					]
+				}
+			]
 		});
 
 		setMarkers(map);
 	}
 
 	var cities = [
-		//http://jsfiddle.net/salman/ZW9jP/4/
-		//nome, lat, long
-		['Assis', -22.6578, -50.4197],
-		['Ourinhos', -22.9780, -49.8680],
-		['Marília', -22.2169, -49.9500],
-		['Palmital', -22.7857, -50.2219],
-		['Bauru', -22.3134, -49.0587],
-		['Presidente Prudente', -22.1235, -51.3940],
-		['Pirajú', -23.1931, -49.3835]
+		['Presidente Prudente', -22.121126, -51.393006],
+		['Regente Feijó', -22.2188934, -51.3064462],
+		['Indiana', -22.1351054, -51.2736547],
+		['Martinópolis', -22.1495283, -51.1721045],
+		['Rancharia', -22.2302991, -50.8950739],
+		['Quatá', -22.2454935, -50.7031569],
+		['João Ramalho', -22.2478133, -50.7698346],
+		['Paraguaçu Paulista', -22.4141128, -50.5753348],
+		['Maracaí', -22.6154961, -50.6682701],
+		['Assis', -22.6604341, -50.4187813],
+		['Tarumã', -22.7497183, -50.5792608],
+		['Cândido Mota', -22.7466667, -50.3880476],
+		['Palmital', -22.787936, -50.2199938],
+		['Ibirarema', -22.8190158, -50.0743732],
+		['Salto Grande', -22.8898683, -49.9836057],
+		['Ourinhos', -22.9798796, -49.8699377],
+		['Chavantes', -23.0375691, -49.7114397],
+		['Ipaussu', -23.0552782, -49.623678],
+		['Santa Cruz do Rio Pardo', -22.8993818, -49.6251185],
+		['Espiríto Santo do Turvo', -22.6927627, -49.4302727],
+		['Bauru', -22.314459, -49.0586951]
 	];
 
 	function setMarkers(map) {
@@ -64,9 +277,9 @@
 
 		}
 
-		var markerCluster = new MarkerClusterer(map, markers, {
-			imagePath: 'dist/img/m'
-		});
+//		var markerCluster = new MarkerClusterer(map, markers, {
+//			imagePath: 'dist/img/m'
+//		});
 
 	}
 
@@ -92,51 +305,41 @@
 
 				</div>
 
-				<div class="BrandTitle">
+				<div class="Brand-title tk-neuropol-x">
 
-					<h2 class="BrandTitle-title">
-
-						<span>CENTURION</span>
-
-					</h2>
-
-					<p class="BrandTitle-subtitle">
-
-						<span>Express</span>
-
-					</p>
+					<h1><span class="font-red-600">Centurion</span> <em>Express</em></h1>
 
 				</div>
 
 			</div>
 
-			<nav class="Navbar Header-nav">
+			<!--<nav class="Navbar Header-nav">-->
 
-				<ul class="Menu">
+				<!--<ul class="Menu">-->
 
-					<li class="MenuItem">
+					<!--<li class="MenuItem">-->
 
-						<a href="#" class="MenuItem-select-area">
+						<!--<a href="#" class="MenuItem-select-area">-->
 
-							<span>Sobre</span>
+							<!--<span>Sobre</span>-->
 
-						</a>
+						<!--</a>-->
 
-					</li>
+					<!--</li>-->
 
-					<li class="MenuItem">
+					<!--<li class="MenuItem">-->
 
-						<a href="#" class="MenuItem-select-area">
+						<!--<a href="#" class="MenuItem-select-area">-->
 
-							<span>Contato</span>
+							<!--<span>Contato</span>-->
 
-						</a>
+						<!--</a>-->
 
-					</li>
+					<!--</li>-->
 
-				</ul>
+				<!--</ul>-->
 
-			</nav>
+			<!--</nav>-->
 
 		</div>
 
@@ -152,7 +355,7 @@
 
 				<div class="Headline">
 
-					<h2 class="Headline-title">RÁPIDO E PROFISSIONAL, <br> TODOS OS DIAS DA SEMANA.</h2>
+					<p class="Headline-lead"><strong class="font-red-400">Transportadora</strong> rápida, profissional e <br>com coletas diárias</p>
 
 					<ul class="HeadlineContact">
 
@@ -204,67 +407,35 @@
 
 					</ul>
 
-					<div class="CoveredCities">
+					<!--<div class="CoveredCities">-->
 
-						<ul class="CoveredCitiesList">
+						<!--<ul class="CoveredCitiesList">-->
 
-							<li class="CoveredCitiesList-item">
+							<!--<li class="CoveredCitiesList-item"><span>Presidente Prudente</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Regente Feijó</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Indiana</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Martinópolis</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Rancharia</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Quatá</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>João Ramalho</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Paraguaçu Paulista</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Maracaí</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Assis</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Tarumã</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Cândido Mota</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Palmital</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Ibirarema</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Salto Grande</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Ourinhos</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Chavantes</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Ipaussu</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Santa Cruz do Rio Pardo</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Espiríto Santo do Turvo</span></li>-->
+							<!--<li class="CoveredCitiesList-item"><span>Bauru</span></li>-->
 
-								<span>Assis</span>
+						<!--</ul>-->
 
-							</li>
-
-							<li class="CoveredCitiesList-item">
-
-								<span>Ourinhos</span>
-
-							</li>
-
-							<li class="CoveredCitiesList-item">
-
-								<span>Marília</span>
-
-							</li>
-
-							<li class="CoveredCitiesList-item">
-
-								<span>Itamaracá</span>
-
-							</li>
-
-							<li class="CoveredCitiesList-item">
-
-								<span>Palmital</span>
-
-							</li>
-
-							<li class="CoveredCitiesList-item">
-
-								<span>Bauru</span>
-
-							</li>
-
-							<li class="CoveredCitiesList-item">
-
-								<span>Pres. Prudente</span>
-
-							</li>
-
-							<li class="CoveredCitiesList-item">
-
-								<span>Pirajú</span>
-
-							</li>
-
-							<li class="CoveredCitiesList-item">
-
-								<span>Etc</span>
-
-							</li>
-
-						</ul>
-
-					</div>
+					<!--</div>-->
 
 				</div>
 
@@ -284,12 +455,6 @@
 
 			<div class="Contact-inner container">
 
-				<header class="Contact-header">
-
-					<h2>Envie uma mensagem</h2>
-
-				</header>
-
 				<form id="cForm" class="ContactForm">
 
 					<div class="ContactFormField--double">
@@ -297,14 +462,14 @@
 						<div class="ContactFormField ContactFormField--split">
 
 							<label for="cName">NOME</label>
-							<input id="cName" type="text" autocomplete="off" class="ContactFormField-input" placeholder="NOME"/>
+							<input id="cName" type="text" autocomplete="off" class="ContactFormField-input" placeholder="Seu nome"/>
 
 						</div>
 
 						<div class="ContactFormField ContactFormField--split">
 
 							<label for="cEmail">EMAIL</label>
-							<input id="cEmail" type="email" autocomplete="off" class="ContactFormField-input" placeholder="EMAIL"/>
+							<input id="cEmail" type="email" autocomplete="off" class="ContactFormField-input" placeholder="E-mail"/>
 
 						</div>
 
@@ -313,7 +478,7 @@
 					<div class="ContactFormField">
 
 						<label for="cMessage">MENSAGEM</label>
-						<textarea id="cMessage" spellcheck="false" class="ContactFormField-input ContactFormField--message" placeholder="MENSAGEM"></textarea>
+						<textarea id="cMessage" spellcheck="false" class="ContactFormField-input ContactFormField--message" placeholder="Mensagem"></textarea>
 
 					</div>
 

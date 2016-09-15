@@ -10,3 +10,34 @@
 	display: -webkit-flex;
 	display: flex;
 }
+
+/* Brand title */
+
+.Brand-title {
+	padding: .5em 0 0 1em;
+}
+
+/* Brand title h1 */
+
+.Brand-title h1 {
+	line-height: 1.1;
+	font-size: 1.125em;
+	font-weight: 700;
+}
+
+/* Brand title span */
+
+.Brand-title span {
+	display: block;
+	font-size: 1.5em;
+	letter-spacing: -.5pt;
+	text-transform: uppercase;
+}
+
+@media (min-width: 60em) {
+
+	.Brand-title h1 {
+		font-size: 1.3125em;
+	}
+
+}

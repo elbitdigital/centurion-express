@@ -5,6 +5,10 @@
 
 }
 
+.HeadlineContactItem:first-of-type {
+	margin-right: 1em;
+}
+
 .HeadlineContactItem:hover {
 	color: #c5322b;
 	fill: #c5322b;

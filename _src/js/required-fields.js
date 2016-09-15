@@ -14,7 +14,12 @@ var RequiredField = (function () {
 		this.viewport = viewport;
 
 		this.input = {};
+		this.label = {};
 		this.fieldClass = fieldClass;
+		this.message = {
+			label: '',
+			empty: this.viewport.dataset.empty
+		};
 
 		this.onClick = function () {
 
@@ -31,7 +36,7 @@ var RequiredField = (function () {
 			self.viewport.classList.add('has-focus');
 
 			if (self.input.viewport.value)
-				self.viewport.classList.remove('is-empty');
+				self.viewport.classList.remove('is-error');
 
 		};
 
@@ -40,18 +45,37 @@ var RequiredField = (function () {
 			self.viewport.classList.remove('has-focus');
 
 			if (!self.input.viewport.value)
-				self.viewport.classList.add('is-empty');
-			else
-				self.viewport.classList.remove('is-empty');
+				self.viewport.classList.add('is-error');
+			else {
+
+				if (self.validateInput(self.input.viewport)) {
+					self.viewport.classList.add('is-valid');
+					self.viewport.classList.remove('is-error');
+				} else {
+					self.viewport.classList.remove('is-valid');
+					self.viewport.classList.add('is-error');
+					self.viewport.classList.add('has-label');
+				}
+				// self.viewport.classList.remove('is-error');
+			}
 
 		};
 
 		this.onInput = function () {
 
+			// current
+			// if (self.input.viewport.value) {
+			// 	self.viewport.classList.remove('is-empty');
+			// 	self.viewport.classList.add('has-label');
+			// 	self.viewport.classList.add('is-valid');
+			// } else {
+			// 	self.viewport.classList.remove('has-label');
+			// 	self.viewport.classList.remove('is-valid');
+			// }
+
 			if (self.input.viewport.value) {
-				self.viewport.classList.remove('is-empty');
+				self.viewport.classList.remove('is-error');
 				self.viewport.classList.add('has-label');
-				self.viewport.classList.add('is-valid');
 			} else {
 				self.viewport.classList.remove('has-label');
 				self.viewport.classList.remove('is-valid');
@@ -99,8 +123,42 @@ var RequiredField = (function () {
 	RequiredField.prototype.getInputElement = function () {
 
 		this.input.viewport = this.viewport.querySelector(this.fieldClass);
+		this.label.viewport = this.viewport.querySelector("label");
+		this.message.label = this.label.viewport.innerText;
+		console.log(this.message.empty);
 
 		return !!this.input.viewport;
+
+	};
+
+	/**
+	 * Validate input element values
+	 * @return {boolean}
+	 */
+	RequiredField.prototype.validateInput = function (input) {
+
+		console.log(input.validity.valid);
+
+		/* Create verification for email and phone */
+
+		// console.log((input.value.replace(/\s+/g, '') == input.value) ? 'válido' : 'inválido');
+
+		if (input.id == "cEmail") {
+
+			if (/\A[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\z/.test(input.value))
+				return true;
+			
+		} else if (input.id == "cPhone") {
+			
+			if (input.value == "111") {
+				this.label.viewport.innerText = this.message.label;
+				return true;
+			} else
+				this.label.viewport.innerText = this.message.empty;
+			
+		}
+
+		return false;
 
 	};
 

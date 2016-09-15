@@ -22,7 +22,8 @@
 .ContactForm.is-success .ContactFormStatus-text--success,
 .ContactForm.is-sending .ContactFormStatus-text--sending,
 .ContactForm.is-error .ContactFormStatus-text--error,
-.ContactForm.is-fail .ContactFormStatus-text--fail {
+.ContactForm.is-fail .ContactFormStatus-text--fail,
+.ContactForm.is-invalid .ContactFormStatus-text--invalid {
 	-webkit-align-items: center;
 	align-items: center;
 	display: -webkit-box;

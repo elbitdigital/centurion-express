@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2016 by original authors @ fontello.com</metadata>
+<defs>
+<font id="centurion" horiz-adv-x="1000" >
+<font-face font-family="centurion" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="email" unicode="&#xe800;" d="M834 516v84l-334-209-334 209v-84l334-207z m0 168c45 0 82-39 82-84v-500c0-45-37-84-82-84h-668c-45 0-82 39-82 84v500c0 45 37 84 82 84h668z" horiz-adv-x="1000" />
+
+<glyph glyph-name="mail_outline" unicode="&#xe801;" d="M500 391l334 209h-668z m334-291v416l-334-207-334 207v-416h668z m0 584c45 0 82-39 82-84v-500c0-45-37-84-82-84h-668c-45 0-82 39-82 84v500c0 45 37 84 82 84h668z" horiz-adv-x="1000" />
+
+<glyph glyph-name="menu" unicode="&#xe80c;" d="M125 600h750v-84h-750v84z m0-291v82h750v-82h-750z m0-209v84h750v-84h-750z" horiz-adv-x="1000" />
+
+<glyph glyph-name="phone" unicode="&#xe811;" d="M275 401c61-117 159-215 276-276l92 92c11 12 29 16 43 10 46-16 97-23 148-23 23 0 41-18 41-41v-147c0-23-18-41-41-41-391 0-709 318-709 709 0 23 18 41 41 41h147c23 0 41-18 41-41 0-53 7-102 23-148 4-14 2-32-10-43z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

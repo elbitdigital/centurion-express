@@ -1656,28 +1656,45 @@ var RequiredField = (function () {
 	 */
 	RequiredField.prototype.validateInput = function (input) {
 
-		console.log(input.validity.valid);
+		console.log();
 
 		/* Create verification for email and phone */
 
 		// console.log((input.value.replace(/\s+/g, '') == input.value) ? 'válido' : 'inválido');
 
-		if (input.id == "cEmail") {
+		if (input.type == "email") {
 
-			if (/\A[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\z/.test(input.value))
-				return true;
-			
-		} else if (input.id == "cPhone") {
-			
-			if (input.value == "111") {
+			if (input.validity.valid) {
 				this.label.viewport.innerText = this.message.label;
 				return true;
-			} else
+			} else {
 				this.label.viewport.innerText = this.message.empty;
-			
+				return false;
+			}
+
+		} else if (input.type == "tel") {
+
+			if (input.value == "111") {
+				return true;
+			} else {
+				this.toggleLabel("default");
+				return false;
+			}
+
 		}
 
-		return false;
+		return (input.validity.valid);
+
+	};
+
+	/**
+	 *
+	 */
+	RequiredField.prototype.toggleLabel = function (state) {
+
+		(state == "default")
+			? this.label.viewport.innerText = this.message.empty
+			: this.label.viewport.innerText = this.message.label;
 
 	};
 

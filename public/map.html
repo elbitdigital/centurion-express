@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="">
+<meta charset="UTF-8">
+<title></title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<script src="dist/js/villa.min.js"></script>
+<link rel="stylesheet" href="dist/css/villa.min.css"/>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
+<link rel="stylesheet" type="text/css" href="dist/css/villa-cross.min.css"/>
+<script src="dist/js/html5shiv.js"></script>
+<script src="dist/js/html5shiv-printshiv.js"></script>
+<script src="dist/js/classList.min.js"></script>
+<![endif]-->
+
+<style>
+
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	#map {
+		height: 100%;
+	}
+
+</style>
+
+<body>
+
+<div id="map"></div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTERWJb2fcG92T9EHtA7z2slLsSx8QOXs&callback=initMap"></script>
+
+<script>
+
+	function initMap() {
+		// Create a map object and specify the DOM element for display.
+		var map = new google.maps.Map(document.getElementById('map'), {
+			center: {
+				lat: -22.40640442,
+				lng: -50.25200317
+			},
+			scrollwheel: false,
+			zoom: 8,
+			zoomControl: true,
+			mapTypeControl: false,
+			scaleControl: false,
+			streetViewControl: false,
+			rotateControl: false
+		});
+
+		setMarkers(map);
+	}
+
+	var cities = [
+		["Assis", "SP", -22.6604341, -50.4187813],
+		["Bauru", "SP", -22.314459, -49.0586951],
+		["Chavantes", "SP", -23.0375691, -49.7114397],
+		["Cândido Mota", "SP", -22.7466667, -50.3880476],
+		["Espiríto Santo do Turvo", "SP", -22.6927627, -49.4302727],
+		["Ibirarema", "SP", -22.8190158, -50.0743732],
+		["Indiana", "SP", -22.1351054, -51.2736547],
+		["Ipaussu", "SP", -23.0552782, -49.623678],
+		["João Ramalho", "SP", -22.2478133, -50.7698346],
+		["Maracaí", "SP", -22.6154961, -50.6682701],
+		["Martinópolis", "SP", -22.1495283, -51.1721045],
+		["Ourinhos", "SP", -22.9798796, -49.8699377],
+		["Palmital", "SP", -22.787936, -50.2199938],
+		["Paraguaçu Paulista", "SP", -22.4141128, -50.5753348],
+		["Presidente Prudente", "SP", -22.121126, -51.393006],
+		["Quatá", "SP", -22.2454935, -50.7031569],
+		["Rancharia", "SP", -22.2302991, -50.8950739],
+		["Regente Feijó", "SP", -22.2188934, -51.3064462],
+		["Salto Grande", "SP", -22.8898683, -49.9836057],
+		["Santa Cruz do Rio Pardo", "SP", -22.8993818, -49.6251185],
+		["Tarumã", "SP", -22.7497183, -50.5792608]
+	];
+
+	function setMarkers(map) {
+
+		var markers = [];
+		var infos = [];
+
+		for (var i = 0; i < cities.length; i++) {
+
+			var city = cities[i];
+			var marker = new google.maps.Marker({
+				position: {
+					lat: city[2],
+					lng: city[3]
+				},
+				map: map,
+				title: city[0]
+			});
+
+			var content = city[0] + " - " + city[1];
+			var infowindow = new google.maps.InfoWindow();
+
+			google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
+
+				return function() {
+
+					if (infos.length > 0) {
+						infos[0].set("marker", null);
+						infos[0].close();
+						infos.length = 0;
+					}
+
+					infowindow.setContent(content);
+					infowindow.open(map, marker);
+					infos[0] = infowindow;
+
+				};
+
+			})(marker, content, infowindow));
+
+			markers.push(marker);
+
+		}
+
+//		var markerCluster = new MarkerClusterer(map, markers, {
+//			imagePath: 'dist/img/m'
+//		});
+
+	}
+
+</script>
+
+</body>
+
+</html>

@@ -238,40 +238,66 @@
 	}
 
 	var cities = [
-		['Presidente Prudente', -22.121126, -51.393006],
-		['Regente Feijó', -22.2188934, -51.3064462],
-		['Indiana', -22.1351054, -51.2736547],
-		['Martinópolis', -22.1495283, -51.1721045],
-		['Rancharia', -22.2302991, -50.8950739],
-		['Quatá', -22.2454935, -50.7031569],
-		['João Ramalho', -22.2478133, -50.7698346],
-		['Paraguaçu Paulista', -22.4141128, -50.5753348],
-		['Maracaí', -22.6154961, -50.6682701],
-		['Assis', -22.6604341, -50.4187813],
-		['Tarumã', -22.7497183, -50.5792608],
-		['Cândido Mota', -22.7466667, -50.3880476],
-		['Palmital', -22.787936, -50.2199938],
-		['Ibirarema', -22.8190158, -50.0743732],
-		['Salto Grande', -22.8898683, -49.9836057],
-		['Ourinhos', -22.9798796, -49.8699377],
-		['Chavantes', -23.0375691, -49.7114397],
-		['Ipaussu', -23.0552782, -49.623678],
-		['Santa Cruz do Rio Pardo', -22.8993818, -49.6251185],
-		['Espiríto Santo do Turvo', -22.6927627, -49.4302727],
-		['Bauru', -22.314459, -49.0586951]
+		["Assis", "SP", -22.6604341, -50.4187813],
+		["Bauru", "SP", -22.314459, -49.0586951],
+		["Chavantes", "SP", -23.0375691, -49.7114397],
+		["Cândido Mota", "SP", -22.7466667, -50.3880476],
+		["Espiríto Santo do Turvo", "SP", -22.6927627, -49.4302727],
+		["Ibirarema", "SP", -22.8190158, -50.0743732],
+		["Indiana", "SP", -22.1351054, -51.2736547],
+		["Ipaussu", "SP", -23.0552782, -49.623678],
+		["João Ramalho", "SP", -22.2478133, -50.7698346],
+		["Maracaí", "SP", -22.6154961, -50.6682701],
+		["Martinópolis", "SP", -22.1495283, -51.1721045],
+		["Ourinhos", "SP", -22.9798796, -49.8699377],
+		["Palmital", "SP", -22.787936, -50.2199938],
+		["Paraguaçu Paulista", "SP", -22.4141128, -50.5753348],
+		["Presidente Prudente", "SP", -22.121126, -51.393006],
+		["Quatá", "SP", -22.2454935, -50.7031569],
+		["Rancharia", "SP", -22.2302991, -50.8950739],
+		["Regente Feijó", "SP", -22.2188934, -51.3064462],
+		["Salto Grande", "SP", -22.8898683, -49.9836057],
+		["Santa Cruz do Rio Pardo", "SP", -22.8993818, -49.6251185],
+		["Tarumã", "SP", -22.7497183, -50.5792608]
 	];
 
 	function setMarkers(map) {
 
 		var markers = [];
+		var infos = [];
+
 		for (var i = 0; i < cities.length; i++) {
 
 			var city = cities[i];
 			var marker = new google.maps.Marker({
-				position: {lat: city[1], lng: city[2]},
+				position: {
+					lat: city[2],
+					lng: city[3]
+				},
 				map: map,
 				title: city[0]
 			});
+
+			var content = city[0] + " - " + city[1];
+			var infowindow = new google.maps.InfoWindow();
+
+			google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
+
+				return function() {
+
+					if (infos.length > 0) {
+						infos[0].set("marker", null);
+						infos[0].close();
+						infos.length = 0;
+					}
+
+					infowindow.setContent(content);
+					infowindow.open(map, marker);
+					infos[0] = infowindow;
+
+				};
+
+			})(marker, content, infowindow));
 
 			markers.push(marker);
 
@@ -388,7 +414,6 @@
 								<div class="HeadlineContactItem-icon icon--envelope">
 
 									<?xml version="1.0" encoding="windows-1252"?>
-									<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 									<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 									<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="511.626px" height="511.626px" viewBox="0 0 511.626 511.626" style="enable-background:new 0 0 511.626 511.626;" xml:space="preserve">
 									<g>
@@ -485,7 +510,7 @@
 					<div class="ContactFormField">
 
 						<label for="cMessage">MENSAGEM</label>
-						<textarea id="cMessage" spellcheck="false" class="ContactFormField-input ContactFormField--message" placeholder="Mensagem"></textarea>
+						<textarea id="cMessage" spellcheck="false" class="ContactFormField-input ContactFormField--message" placeholder="MENSAGEM"></textarea>
 
 					</div>
 

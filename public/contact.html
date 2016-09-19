@@ -31,35 +31,35 @@
 
 			<form id="cForm" class="ContactForm" novalidate>
 
-				<div class="ContactFormField--multiple">
+				<div class="ContactForm-row">
 
-					<div class="ContactFormField ContactFormField--split" data-empty="Informe o nome">
+					<div class="ContactFormField ContactFormField--split" data-empty="Informe um nome" data-invalid="Informe dados válidos">
 
 						<label for="cName">NOME</label>
 						<input id="cName" type="text" autocomplete="off" class="ContactFormField-input" placeholder="NOME"/>
 
 					</div>
 
-					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe o email">
+					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe um email" data-invalid="Informe um email válido">
 
 						<label for="cEmail">EMAIL</label>
 						<input id="cEmail" type="email" autocomplete="off" class="ContactFormField-input" placeholder="EMAIL"/>
 
 					</div>
 
-					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe o telefone">
+					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe um telefone" data-invalid="Informe um telefone válido">
 
 						<label for="cPhone">TELEFONE</label>
-						<input id="cPhone" type="tel" autocomplete="off" class="ContactFormField-input" placeholder="TELEFONE"/>
+						<input id="cPhone" type="tel" autocomplete="off" class="ContactFormField-input" placeholder="TELEFONE (ex: 18 3351 5923)"/>
 
 					</div>
 
 				</div>
 
-				<div class="ContactFormField" data-empty="Informe a mensagem">
+				<div class="ContactFormField" data-empty="Informe uma mensagem">
 
 					<label for="cMessage">MENSAGEM</label>
-					<textarea id="cMessage" class="ContactFormField-input ContactFormField--message" placeholder="MENSAGEM"></textarea>
+					<textarea id="cMessage" spellcheck="false" class="ContactFormField-input ContactFormField--message" placeholder="MENSAGEM"></textarea>
 
 				</div>
 
@@ -79,10 +79,6 @@
 
 					<span class="ContactFormStatus-text ContactFormStatus-text--fail font-red-a700">
 						Houve algum problema, tentando novamente...
-					</span>
-
-					<span class="ContactFormStatus-text ContactFormStatus-text--invalid font-orange-a700">
-						Apresentar campo inválidos.
 					</span>
 
 				</div>

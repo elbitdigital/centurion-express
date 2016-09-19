@@ -1537,7 +1537,8 @@ var RequiredField = (function () {
 		this.fieldClass = fieldClass;
 		this.message = {
 			label: '',
-			empty: this.viewport.dataset.empty
+			empty: this.viewport.dataset.empty,
+			invalid: this.viewport.dataset.invalid
 		};
 
 		this.onClick = function () {
@@ -1546,7 +1547,7 @@ var RequiredField = (function () {
 
 				self.input.viewport.focus();
 
-			} catch ( e ) { }
+			} catch (e) { }
 
 		};
 
@@ -1554,28 +1555,24 @@ var RequiredField = (function () {
 
 			self.viewport.classList.add('has-focus');
 
-			if (self.input.viewport.value)
-				self.viewport.classList.remove('is-error');
-
 		};
 
 		this.onBlur = function () {
 
 			self.viewport.classList.remove('has-focus');
 
-			if (!self.input.viewport.value)
-				self.viewport.classList.add('is-error');
-			else {
+			// validation on input blur (act as first time validation)
+			if (self.validateInput(self.input.viewport)) {
 
-				if (self.validateInput(self.input.viewport)) {
-					self.viewport.classList.add('is-valid');
-					self.viewport.classList.remove('is-error');
-				} else {
-					self.viewport.classList.remove('is-valid');
-					self.viewport.classList.add('is-error');
-					self.viewport.classList.add('has-label');
-				}
-				// self.viewport.classList.remove('is-error');
+				self.viewport.classList.add('is-valid');
+				self.viewport.classList.remove('is-error');
+
+			} else {
+
+				self.viewport.classList.remove('is-valid');
+				self.viewport.classList.add('is-error');
+				self.viewport.classList.add('has-label');
+
 			}
 
 		};
@@ -1593,11 +1590,33 @@ var RequiredField = (function () {
 			// }
 
 			if (self.input.viewport.value) {
-				self.viewport.classList.remove('is-error');
+
+				// show label on field input
 				self.viewport.classList.add('has-label');
+
+				// validation update routine
+				if (self.viewport.classList.contains('is-error')) {
+
+					if (self.validateInput(self.input.viewport)) {
+						self.viewport.classList.add('is-valid');
+						self.viewport.classList.remove('is-error');
+					}
+
+				} else if (self.viewport.classList.contains('is-valid')) {
+
+					if (!self.validateInput(self.input.viewport)) {
+						self.viewport.classList.remove('is-valid');
+						self.viewport.classList.add('is-error');
+						self.viewport.classList.add('has-label');
+					}
+
+				}
+
 			} else {
+
+				// hide label on field input empty
 				self.viewport.classList.remove('has-label');
-				self.viewport.classList.remove('is-valid');
+
 			}
 
 		};
@@ -1631,7 +1650,8 @@ var RequiredField = (function () {
 			this.input.viewport.addEventListener('blur', this.onBlur, false);
 			this.input.viewport.addEventListener('input', this.onInput, false);
 
-		} catch ( e ) {	}
+		} catch (e) {
+		}
 
 	};
 
@@ -1644,7 +1664,6 @@ var RequiredField = (function () {
 		this.input.viewport = this.viewport.querySelector(this.fieldClass);
 		this.label.viewport = this.viewport.querySelector("label");
 		this.message.label = this.label.viewport.innerText;
-		console.log(this.message.empty);
 
 		return !!this.input.viewport;
 
@@ -1652,33 +1671,57 @@ var RequiredField = (function () {
 
 	/**
 	 * Validate input element values
+	 * returns true on valid input and returns false on invalid input
 	 * @return {boolean}
 	 */
 	RequiredField.prototype.validateInput = function (input) {
 
-		console.log();
+		if (input.value == "") {
 
-		/* Create verification for email and phone */
+			this.toggleLabel("empty");
+			return false;
 
-		// console.log((input.value.replace(/\s+/g, '') == input.value) ? 'válido' : 'inválido');
+		} else {
 
-		if (input.type == "email") {
+			this.toggleLabel("default");
 
-			if (input.validity.valid) {
-				this.label.viewport.innerText = this.message.label;
+		}
+
+		if (input.type == "text") {
+
+			this.toggleLabel("default");
+			return true;
+
+		} else if (input.type == "email") {
+
+			var regexMail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+			if (input.validity.valid && regexMail.test(input.value)) {
+
+				this.toggleLabel("default");
 				return true;
+
 			} else {
-				this.label.viewport.innerText = this.message.empty;
+
+				this.toggleLabel("invalid");
 				return false;
+
 			}
 
 		} else if (input.type == "tel") {
 
-			if (input.value == "111") {
-				return true;
-			} else {
+			var regexPhone = /^[1-9][0-9]\s?[2-9][0-9]{3,4}[-\s]?[0-9]{4}$/;
+
+			if (regexPhone.test(input.value)) {
+
 				this.toggleLabel("default");
+				return true;
+
+			} else {
+
+				this.toggleLabel("invalid");
 				return false;
+
 			}
 
 		}
@@ -1692,9 +1735,17 @@ var RequiredField = (function () {
 	 */
 	RequiredField.prototype.toggleLabel = function (state) {
 
-		(state == "default")
-			? this.label.viewport.innerText = this.message.empty
-			: this.label.viewport.innerText = this.message.label;
+		switch (state) {
+			case "invalid":
+				this.label.viewport.innerText = this.message.invalid;
+				break;
+			case "empty":
+				this.label.viewport.innerText = this.message.empty;
+				break;
+			case "default":
+				this.label.viewport.innerText = this.message.label;
+				break;
+		}
 
 	};
 

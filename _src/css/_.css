@@ -4,6 +4,13 @@
  * Licensed under MIT (https://github.com/elbitdigital/base/blob/master/LICENSE)
 */
 
+/* Disable outline for input and textarea when focused, used for chrome beautify */
+
+input:focus,
+textarea:focus {
+	outline: none;
+}
+
 .container {
 	padding: 0 1em;
 	width: 100%;

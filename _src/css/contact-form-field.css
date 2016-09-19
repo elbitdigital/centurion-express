@@ -48,28 +48,6 @@
 	height: 6em;
 }
 
-/*.ContactFormField[type=email] {*/
-	/*-webkit-appearance: none;*/
-	/**/
-	/*width: 100%;*/
-	/*border: 1px solid #333;*/
-	/*margin: 0;*/
-	/**/
-	/*font-family: inherit;*/
-	/*font-size: 90%;*/
-	/**/
-	/*-moz-box-sizing: border-box;*/
-	/*box-sizing: border-box;*/
-/*}*/
-/*.ContactFormField-input:invalid {*/
-	/*border-color: transparent;*/
-	/*background-color: transparent;*/
-/*}*/
-/**/
-/*.ContactFormField-input:focus:invalid {*/
-	/*outline: none;*/
-/*}*/
-
 /* Contact Form Field input textarea */
 
 .ContactFormField input,
@@ -102,24 +80,10 @@
 	width: 100%;
 }
 
-/* Contact Form error field */
-
-.ContactFormField-error {
+.ContactFormField.is-error label {
+	font-size: .725em;
+	font-weight: 500;
 	color: rgba(213,0,0,0.5);
-	display: none;
-	font-size: .875em;
-	font-weight: 900;
-	text-transform: uppercase;
-	padding-top: .75em;
-	pointer-events: none;
-	position: absolute;
-	top: 0;
-	width: 100%;
-}
-
-.ContactFormField.is-required.is-error .ContactFormField-error,
-.ContactFormField.is-required-one.is-error .ContactFormField-error {
-	display: block;
 }
 
 /* VALIDATION STYLES */

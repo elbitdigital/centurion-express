@@ -18,7 +18,7 @@
 
 	form.fields.cName = document.getElementById('cName');
 	// form.fields.cCity = document.getElementById('cCity');
-	// form.fields.cPhone = document.getElementById('cPhone');
+	form.fields.cPhone = document.getElementById('cPhone');
 	form.fields.cEmail = document.getElementById('cEmail');
 	form.fields.cMessage = document.getElementById('cMessage');
 	form.sendButton.viewport = document.getElementById('cSubmit');
@@ -147,7 +147,7 @@
 					// get object data
 					var requestData = {
 						cName: form.fields.cName.value,
-						cPhone: "",
+						cPhone: form.fields.cPhone.value,
 						cEmail: form.fields.cEmail.value,
 						cAddress: "",
 						cCity: "",

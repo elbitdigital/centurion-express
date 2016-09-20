@@ -25,7 +25,7 @@
 
 	form.fields.cName = document.getElementById('cName');
 	// form.fields.cCity = document.getElementById('cCity');
-	// form.fields.cPhone = document.getElementById('cPhone');
+	form.fields.cPhone = document.getElementById('cPhone');
 	form.fields.cEmail = document.getElementById('cEmail');
 	form.fields.cMessage = document.getElementById('cMessage');
 	form.sendButton.viewport = document.getElementById('cSubmit');
@@ -154,7 +154,7 @@
 					// get object data
 					var requestData = {
 						cName: form.fields.cName.value,
-						cPhone: "",
+						cPhone: form.fields.cPhone.value,
 						cEmail: form.fields.cEmail.value,
 						cAddress: "",
 						cCity: "",
@@ -1534,6 +1534,7 @@ var RequiredField = (function () {
 
 		this.input = {};
 		this.label = {};
+		this.isRequiredOne = false;
 		this.fieldClass = fieldClass;
 		this.message = {
 			label: '',
@@ -1561,17 +1562,22 @@ var RequiredField = (function () {
 
 			self.viewport.classList.remove('has-focus');
 
-			// validation on input blur (act as first time validation)
-			if (self.validateInput(self.input.viewport)) {
+			// teste
+			if (self.input.viewport.value) {
 
-				self.viewport.classList.add('is-valid');
-				self.viewport.classList.remove('is-error');
+				// validation on input blur (act as first time validation)
+				if (self.validateInput(self.input.viewport)) {
 
-			} else {
+					self.viewport.classList.add('is-valid');
+					self.viewport.classList.remove('is-error');
 
-				self.viewport.classList.remove('is-valid');
-				self.viewport.classList.add('is-error');
-				self.viewport.classList.add('has-label');
+				} else {
+
+					self.viewport.classList.remove('is-valid');
+					self.viewport.classList.add('is-error');
+					self.viewport.classList.add('has-label');
+
+				}
 
 			}
 
@@ -1580,14 +1586,15 @@ var RequiredField = (function () {
 		this.onInput = function () {
 
 			// current
-			// if (self.input.viewport.value) {
-			// 	self.viewport.classList.remove('is-empty');
-			// 	self.viewport.classList.add('has-label');
-			// 	self.viewport.classList.add('is-valid');
-			// } else {
-			// 	self.viewport.classList.remove('has-label');
-			// 	self.viewport.classList.remove('is-valid');
-			// }
+			/*
+			if (self.input.viewport.value) {
+				self.viewport.classList.remove('is-empty');
+				self.viewport.classList.add('has-label');
+				self.viewport.classList.add('is-valid');
+			} else {
+				self.viewport.classList.remove('has-label');
+				self.viewport.classList.remove('is-valid');
+			}*/
 
 			if (self.input.viewport.value) {
 
@@ -1650,8 +1657,7 @@ var RequiredField = (function () {
 			this.input.viewport.addEventListener('blur', this.onBlur, false);
 			this.input.viewport.addEventListener('input', this.onInput, false);
 
-		} catch (e) {
-		}
+		} catch (e) { }
 
 	};
 
@@ -1662,6 +1668,13 @@ var RequiredField = (function () {
 	RequiredField.prototype.getInputElement = function () {
 
 		this.input.viewport = this.viewport.querySelector(this.fieldClass);
+
+		/*
+		(this.input.viewport.type == "email" || this.input.viewport.type == "tel")
+			? this.isRequiredOne = true
+			: this.isRequiredOne = false;
+		*/
+
 		this.label.viewport = this.viewport.querySelector("label");
 		this.message.label = this.label.viewport.innerText;
 

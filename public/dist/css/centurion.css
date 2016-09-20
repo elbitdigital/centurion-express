@@ -159,6 +159,152 @@ textarea:focus {
   background: #b71c1c;
   color: #e0e0e0;
 }
+@font-face {
+  font-family: 'centurion';
+  src: url("../font/centurion.eot?90271859");
+  src: url("../font/centurion.eot?90271859#iefix") format('embedded-opentype'),
+       url("../font/centurion.woff2?90271859") format('woff2'),
+       url("../font/centurion.woff?90271859") format('woff'),
+       url("../font/centurion.ttf?90271859") format('truetype'),
+       url("../font/centurion.svg?90271859#centurion") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'centurion';
+    src: url('../font/centurion.svg?90271859#centurion') format('svg');
+  }
+}
+*/
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "centurion";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-email:before {
+  content: '\e800';
+}
+
+/* '' */
+
+.icon-mail_outline:before {
+  content: '\e801';
+}
+
+/* '' */
+
+.icon-menu:before {
+  content: '\e80c';
+}
+
+/* '' */
+
+.icon-phone:before {
+  content: '\e811';
+}
+
+/* '' */
+/* Cities List */
+
+.CitiesList {
+  max-width: 48em;
+  margin-top: 1em;
+  /*text-align: center;*/
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+/* Cities List item */
+
+.CitiesList-item {
+  margin: .25em;
+  border: 1px black solid;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 1em;
+  padding: .5em 1em;
+  /*white-space: nowrap;*/
+  cursor: pointer;
+}
+
+@media (min-width: 48em) {
+  /* Cities List item */
+
+  .CitiesList-item {
+    margin: .5em .25em;
+  }
+}
+/* Cities */
+
+/* Cities background */
+
+.Cities-background {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+/* Cities inner */
+
+.Cities-inner {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+  width: 100%;
+}
 /* Contact Form Field */
 
 .ContactFormField {
@@ -692,50 +838,60 @@ textarea:focus {
   display: flex;
   -webkit-justify-content: center;
   justify-content: center;
-  -webkit-flex-flow: row;
-  flex-flow: row;
 }
 
 .HeadlineContactItem-icon {
-  height: 20px;
   position: relative;
-  width: 20px;
-  margin-right: .75em;
+  font-size: 1.25em;
 }
 
 .HeadlineContactItem-icon svg {
   height: 100%;
   width: 100%;
 }
+
+@media (min-width: 48em) {
+  /* Headline Contact Item link */
+
+  .HeadlineContactItem-link {
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+}
 /* Headline Contact */
 
 .HeadlineContact {
-  -webkit-align-items: flex-start;
-  align-items: flex-start;
+  -webkit-align-items: center;
+  align-items: center;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  -webkit-justify-content: center;
+  justify-content: center;
   padding: .5em 0;
 }
 
 @media (min-width: 48em) {
   .HeadlineContact {
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
     -webkit-align-items: flex-start;
     align-items: flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
   }
 }
 /* Headline */
 
 .Headline {
+  padding: 1em 0;
   position: relative;
-  width: 100%;
   text-align: center;
+  width: 100%;
 }
 
 /* Headline lead */
@@ -754,6 +910,30 @@ textarea:focus {
   font-weight: 900;
 }
 
+/* Headline sublead */
+
+.Headline-sublead {
+  color: #616161;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 24rem;
+  padding: .75em 0;
+}
+
+/* Headline sublead link */
+
+.Headline-sublead a {
+  color: #ef5350;
+  text-decoration: none;
+  border-bottom: 1px #ef5350 dotted;
+}
+
+.Headline-sublead a:hover {
+  color: #e53935;
+  border-bottom-style: solid;
+}
+
 @media (min-width: 48em) {
   .Headline {
     text-align: left;
@@ -762,7 +942,7 @@ textarea:focus {
 
 @media (min-width: 60em) {
   .Headline {
-    padding: 3em 1em 0 3em;
+    padding: 2em 1em 0 3em;
   }
 
   .Headline-lead {

@@ -26,15 +26,11 @@
 	display: flex;
 	-webkit-justify-content: center;
 	justify-content: center;
-	-webkit-flex-flow: row;
-	flex-flow: row;
 }
 
 .HeadlineContactItem-icon {
-	height: 20px;
 	position: relative;
-	width: 20px;
-	margin-right: .75em;
+	font-size: 1.25em;
 }
 
 .HeadlineContactItem-icon svg {
@@ -42,4 +38,13 @@
 	width: 100%;
 }
 
+@media (min-width: 48em) {
 
+	/* Headline Contact Item link */
+
+	.HeadlineContactItem-link {
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+	}
+
+}

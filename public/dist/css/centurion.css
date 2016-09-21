@@ -241,7 +241,6 @@ textarea:focus {
 .CitiesList {
   max-width: 48em;
   margin-top: 1em;
-  /*text-align: center;*/
   -webkit-align-items: center;
   align-items: center;
   display: -webkit-box;
@@ -258,25 +257,58 @@ textarea:focus {
 /* Cities List item */
 
 .CitiesList-item {
-  margin: .25em;
-  border: 1px black solid;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  width: 100%;
   font-size: 1em;
-  padding: .5em 1em;
-  /*white-space: nowrap;*/
-  cursor: pointer;
+  color: #424242;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: .25em 0 .25em 1em;
+  line-height: 2;
+  cursor: default;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+.CitiesList-item:hover,
+.CitiesList-item:active {
+  color: #fff;
+  background-color: #ff5252;
+}
+
+@media (min-width: 30em) {
+  .CitiesList-item {
+    padding: .25em .5em;
+    border: solid 2px #616161;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: .25em;
+    width: auto;
+  }
+
+  .CitiesList-item:hover,
+  .CitiesList-item:active {
+    border: solid 2px #ff5252;
+  }
 }
 
 @media (min-width: 48em) {
   /* Cities List item */
 
   .CitiesList-item {
-    margin: .5em .25em;
+    margin: .5em .5em;
   }
 }
 /* Cities */
+
+.Cities {
+  width: 100%;
+  position: relative;
+  padding: 3em 0;
+}
 
 /* Cities background */
 
@@ -304,6 +336,12 @@ textarea:focus {
   flex-flow: column;
   position: relative;
   width: 100%;
+}
+
+/* Cities header */
+
+.Cities-header {
+  text-align: center;
 }
 /* Contact Form Field */
 

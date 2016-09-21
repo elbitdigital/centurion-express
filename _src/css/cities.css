@@ -1,6 +1,12 @@
 
 /* Cities */
 
+.Cities {
+	width: 100%;
+	position: relative;
+	padding: 3em 0;
+}
+
 /* Cities background */
 
 .Cities-background {
@@ -27,4 +33,10 @@
 	flex-flow: column;
 	position: relative;
 	width: 100%;
+}
+
+/* Cities header */
+
+.Cities-header {
+	text-align: center;
 }

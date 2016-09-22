@@ -60,6 +60,11 @@ var RequiredField = (function () {
 
 				}
 
+			} else {
+
+				self.toggleLabel("default");
+				self.viewport.classList.remove('is-error');
+
 			}
 
 		};
@@ -150,11 +155,10 @@ var RequiredField = (function () {
 
 		this.input.viewport = this.viewport.querySelector(this.fieldClass);
 
-		/*
-		(this.input.viewport.type == "email" || this.input.viewport.type == "tel")
+
+		(this.viewport.classList.contains("is-required-one"))
 			? this.isRequiredOne = true
 			: this.isRequiredOne = false;
-		*/
 
 		this.label.viewport = this.viewport.querySelector("label");
 		this.message.label = this.label.viewport.innerText;
@@ -204,7 +208,12 @@ var RequiredField = (function () {
 
 		} else if (input.type == "tel") {
 
-			var regexPhone = /^[1-9][0-9]\s?[2-9][0-9]{3,4}[-\s]?[0-9]{4}$/;
+			(input.value.replace(/\s/g, "").length <= 13)
+				? input.value = input.value.replace(/\s/g, "")
+				: false;
+
+			// var regexPhone = /^[1-9][0-9]\s?[2-9][0-9]{3,4}[-\s]?[0-9]{4}$/;
+			var regexPhone = /^[+#*]?[0-9]{8,13}$/;
 
 			if (regexPhone.test(input.value)) {
 

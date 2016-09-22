@@ -34,18 +34,25 @@
 	form.states = [
 		'is-error',
 		'is-fail',
+		'is-incomplete',
 		'is-sending',
 		'is-success'
 	];
 
-	form.changeState = function (state) {
+	form.changeState = function (state, message) {
 
 		if (form.viewport) {
 
-			for (var i = form.states.length; i--; )
+			for (var i = form.states.length; i--;)
 				form.viewport.classList.remove(form.states[i])
 
 			form.viewport.classList.add(state);
+
+			if (message) {
+
+				document.querySelector("span.ContactFormStatus-text--incomplete").innerText = message;
+
+			}
 
 		}
 
@@ -61,15 +68,15 @@
 
 			// "beforeSend"
 			formLocked = true;
-			form.changeState('is-sending');
+			form.changeState('is-sending', false);
 
 			xhr.ontimeout = function (e) {
 				console.log(e);
-				form.changeState('is-fail');
+				form.changeState('is-fail', false);
 			};
 
 			xhr.onerror = function() {
-				form.changeState('is-error');
+				form.changeState('is-error', false);
 				//form.send(requestData, 5000);
 			};
 
@@ -79,9 +86,9 @@
 
 					if (xhr.status == 200) {
 						console.log(xhr.responseText);
-						form.changeState('is-success');
+						form.changeState('is-success', false);
 					} else {
-						form.changeState('is-error');
+						form.changeState('is-error', false);
 					}
 
 				}
@@ -141,7 +148,7 @@
 
 			if (formSentCount < formSentCountLimit) {
 
-				var allow = !!(form.fields.cName.value && form.fields.cEmail.value && form.fields.cMessage.value);
+				var allow = !!(form.fields.cName.value && (form.fields.cEmail.value || form.fields.cPhone.value) && form.fields.cMessage.value);
 
 				if (allow) {
 
@@ -165,7 +172,15 @@
 					form.send(requestData, false);
 
 				} else {
-					form.changeState('is-error');
+
+					form.changeState('error', false);
+
+					// console.log(requiredFields[0].requiredField.label.viewport.innerText);
+
+					for (var i = 0; i < requiredFields.length; i++)
+						if (requiredFields[i].requiredField.isRequiredOne && requiredFields[i].requiredField.input.viewport.value == "")
+							form.changeState('is-incomplete', "Informe pelo menos um email ou um telefone");
+
 				}
 
 			}
@@ -1579,6 +1594,11 @@ var RequiredField = (function () {
 
 				}
 
+			} else {
+
+				self.toggleLabel("default");
+				self.viewport.classList.remove('is-error');
+
 			}
 
 		};
@@ -1669,11 +1689,10 @@ var RequiredField = (function () {
 
 		this.input.viewport = this.viewport.querySelector(this.fieldClass);
 
-		/*
-		(this.input.viewport.type == "email" || this.input.viewport.type == "tel")
+
+		(this.viewport.classList.contains("is-required-one"))
 			? this.isRequiredOne = true
 			: this.isRequiredOne = false;
-		*/
 
 		this.label.viewport = this.viewport.querySelector("label");
 		this.message.label = this.label.viewport.innerText;
@@ -1723,7 +1742,12 @@ var RequiredField = (function () {
 
 		} else if (input.type == "tel") {
 
-			var regexPhone = /^[1-9][0-9]\s?[2-9][0-9]{3,4}[-\s]?[0-9]{4}$/;
+			(input.value.replace(/\s/g, "").length <= 13)
+				? input.value = input.value.replace(/\s/g, "")
+				: false;
+
+			// var regexPhone = /^[1-9][0-9]\s?[2-9][0-9]{3,4}[-\s]?[0-9]{4}$/;
+			var regexPhone = /^[+#*]?[0-9]{8,13}$/;
 
 			if (regexPhone.test(input.value)) {
 

@@ -301,6 +301,14 @@ textarea:focus {
   .CitiesList-item {
     margin: .5em .5em;
   }
+
+  .CitiesList {
+    /*-webkit-flex-flow: column wrap;*/
+    /*flex-flow: column wrap;*/
+    /*max-width: 35em;*/
+    /*-webkit-justify-content: space-between;*/
+    /*justify-content: space-between;*/
+  }
 }
 /* Cities */
 
@@ -579,7 +587,7 @@ textarea:focus {
 .ContactForm.is-sending .ContactFormStatus-text--sending,
 .ContactForm.is-error .ContactFormStatus-text--error,
 .ContactForm.is-fail .ContactFormStatus-text--fail,
-.ContactForm.is-invalid .ContactFormStatus-text--invalid {
+.ContactForm.is-incomplete .ContactFormStatus-text--incomplete {
   -webkit-align-items: center;
   align-items: center;
   display: -webkit-box;
@@ -984,7 +992,7 @@ textarea:focus {
   }
 
   .Headline-lead {
-    font-size: 3em;
+    font-size: 2.625em;
   }
 
   .Headline-lead strong {

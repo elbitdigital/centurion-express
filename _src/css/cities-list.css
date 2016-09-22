@@ -68,4 +68,12 @@
 		margin: .5em .5em;
 	}
 
+	.CitiesList {
+		/*-webkit-flex-flow: column wrap;*/
+		/*flex-flow: column wrap;*/
+		/*max-width: 35em;*/
+		/*-webkit-justify-content: space-between;*/
+		/*justify-content: space-between;*/
+	}
+
 }

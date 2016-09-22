@@ -463,34 +463,34 @@
 
 		<div class="Contact-inner container">
 
-			<form id="cForm" class="ContactForm">
+			<form id="cForm" class="ContactForm" novalidate>
 
 				<div class="ContactForm-row">
 
-					<div class="ContactFormField ContactFormField--split" data-empty="Informe o nome">
+					<div class="ContactFormField ContactFormField--split" data-empty="Informe um nome" data-invalid="Informe dados válidos">
 
 						<label for="cName">NOME</label>
 						<input id="cName" type="text" autocomplete="off" class="ContactFormField-input" placeholder="NOME"/>
 
 					</div>
 
-					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe o email">
+					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe um email" data-invalid="Informe um email válido">
 
 						<label for="cEmail">EMAIL</label>
 						<input id="cEmail" type="email" autocomplete="off" class="ContactFormField-input" placeholder="EMAIL"/>
 
 					</div>
 
-					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe o telefone">
+					<div class="ContactFormField ContactFormField--split is-required-one" data-empty="Informe um telefone" data-invalid="Informe um telefone válido">
 
 						<label for="cPhone">TELEFONE</label>
-						<input id="cPhone" type="text" autocomplete="off" class="ContactFormField-input" placeholder="TELEFONE"/>
+						<input id="cPhone" type="tel" autocomplete="off" class="ContactFormField-input" placeholder="TELEFONE"/>
 
 					</div>
 
 				</div>
 
-				<div class="ContactFormField">
+				<div class="ContactFormField" data-empty="Informe uma mensagem">
 
 					<label for="cMessage">MENSAGEM</label>
 					<textarea id="cMessage" spellcheck="false" class="ContactFormField-input ContactFormField--message" placeholder="MENSAGEM"></textarea>
@@ -506,6 +506,8 @@
 					<span class="ContactFormStatus-text ContactFormStatus-text--success font-light-green-a700">
 						Enviado com sucesso!
 					</span>
+
+					<span class="ContactFormStatus-text ContactFormStatus-text--incomplete font-amber-a700"></span>
 
 					<span class="ContactFormStatus-text ContactFormStatus-text--error font-red-a700">
 						Não foi possível enviar, verifique os campos e tente novamente.
@@ -535,13 +537,13 @@
 
 	<section id="cities" class="Cities">
 
-		<div class="Cities-background"></div>
+		<div class="Cities-background grey-100"></div>
 
 		<div class="Cities-inner container">
 
 			<header class="Cities-header">
 				<h2>Cidades atendidas</h2>
-				<p>Atendemos todas estas cidades</p>
+				<p>Manda entregar que chega aqui nessas cidades</p>
 			</header>
 
 			<ul class="CitiesList">
@@ -574,7 +576,7 @@
 
 </main>
 
-<script src="dist/js/centurion.min.js"></script>
+<script src="dist/js/centurion.js"></script>
 
 <script>
 

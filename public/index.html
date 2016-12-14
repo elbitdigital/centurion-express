@@ -25,6 +25,25 @@
 <script src="dist/js/classList.min.js"></script>
 <![endif]-->
 
+<style>
+
+	.TelephoneList {
+		padding: 3em;
+		width: 100%;
+	}
+
+	.TelephoneList p {
+		font-weight: 900;
+		margin-bottom: 1em;
+	}
+
+	.TelphoneItem {
+		font-size: 1.125em;
+		margin-bottom: 1em;
+	}
+
+</style>
+
 <body class="grey-200 font-grey-800">
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTERWJb2fcG92T9EHtA7z2slLsSx8QOXs&callback=initMap"></script>
@@ -339,34 +358,6 @@
 
 			</div>
 
-			<!--<nav class="Navbar Header-nav">-->
-
-				<!--<ul class="Menu">-->
-
-					<!--<li class="MenuItem">-->
-
-						<!--<a href="#" class="MenuItem-select-area">-->
-
-							<!--<span>Sobre</span>-->
-
-						<!--</a>-->
-
-					<!--</li>-->
-
-					<!--<li class="MenuItem">-->
-
-						<!--<a href="#" class="MenuItem-select-area">-->
-
-							<!--<span>Contato</span>-->
-
-						<!--</a>-->
-
-					<!--</li>-->
-
-				<!--</ul>-->
-
-			<!--</nav>-->
-
 		</div>
 
 	</header>
@@ -387,7 +378,7 @@
 
 						<li class="HeadlineContactItem">
 
-							<a href="#" class="HeadlineContactItem-link HeadlineContactItem-link--phone">
+							<a href="tel:+551833515923" class="HeadlineContactItem-link HeadlineContactItem-link--phone">
 
 								<div class="HeadlineContactItem-icon icon--phone">
 
@@ -409,7 +400,7 @@
 
 						<li class="HeadlineContactItem">
 
-							<a href="#" class="HeadlineContactItem-link HeadlineContactItem-link--email">
+							<a href="mailto:contato@centurionexpress.com.br" class="HeadlineContactItem-link HeadlineContactItem-link--email">
 
 								<div class="HeadlineContactItem-icon icon--envelope">
 
@@ -424,7 +415,7 @@
 
 								</div>
 
-								<span>contato@centurion.com</span>
+								<span>contato@centurionexpress.com.br</span>
 
 							</a>
 
@@ -432,35 +423,35 @@
 
 					</ul>
 
-					<!--<div class="CoveredCities">-->
+					<div class="CoveredCities">
 
-						<!--<ul class="CoveredCitiesList">-->
+						<ul class="CoveredCitiesList">
 
-							<!--<li class="CoveredCitiesList-item"><span>Presidente Prudente</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Regente Feijó</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Indiana</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Martinópolis</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Rancharia</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Quatá</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>João Ramalho</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Paraguaçu Paulista</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Maracaí</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Assis</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Tarumã</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Cândido Mota</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Palmital</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Ibirarema</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Salto Grande</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Ourinhos</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Chavantes</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Ipaussu</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Santa Cruz do Rio Pardo</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Espiríto Santo do Turvo</span></li>-->
-							<!--<li class="CoveredCitiesList-item"><span>Bauru</span></li>-->
+							<li class="CoveredCitiesList-item"><span>Presidente Prudente</span></li>
+							<li class="CoveredCitiesList-item"><span>Regente Feijó</span></li>
+							<li class="CoveredCitiesList-item"><span>Indiana</span></li>
+							<li class="CoveredCitiesList-item"><span>Martinópolis</span></li>
+							<li class="CoveredCitiesList-item"><span>Rancharia</span></li>
+							<li class="CoveredCitiesList-item"><span>Quatá</span></li>
+							<li class="CoveredCitiesList-item"><span>João Ramalho</span></li>
+							<li class="CoveredCitiesList-item"><span>Paraguaçu Paulista</span></li>
+							<li class="CoveredCitiesList-item"><span>Maracaí</span></li>
+							<li class="CoveredCitiesList-item"><span>Assis</span></li>
+							<li class="CoveredCitiesList-item"><span>Tarumã</span></li>
+							<li class="CoveredCitiesList-item"><span>Cândido Mota</span></li>
+							<li class="CoveredCitiesList-item"><span>Palmital</span></li>
+							<li class="CoveredCitiesList-item"><span>Ibirarema</span></li>
+							<li class="CoveredCitiesList-item"><span>Salto Grande</span></li>
+							<li class="CoveredCitiesList-item"><span>Ourinhos</span></li>
+							<li class="CoveredCitiesList-item"><span>Chavantes</span></li>
+							<li class="CoveredCitiesList-item"><span>Ipaussu</span></li>
+							<li class="CoveredCitiesList-item"><span>Santa Cruz do Rio Pardo</span></li>
+							<li class="CoveredCitiesList-item"><span>Espiríto Santo do Turvo</span></li>
+							<li class="CoveredCitiesList-item"><span>Bauru</span></li>
 
-						<!--</ul>-->
+						</ul>
 
-					<!--</div>-->
+					</div>
 
 				</div>
 
@@ -545,6 +536,17 @@
 					</div>
 
 				</form>
+
+				<div class="TelephoneList">
+
+					<p>Entre em contato também pelos celulares:</p>
+
+					<div class="TelphoneItem">18 9 8176 3101 (TIM)</div>
+					<div class="TelphoneItem">14 9 8148 5328 (TIM)</div>
+					<div class="TelphoneItem">18 9 9818 3001 (VIVO)</div>
+					<div class="TelphoneItem">14 9 9904 3326 (VIVO)</div>
+
+				</div>
 
 			</div>
 

@@ -2,9 +2,10 @@
 /* Headline */
 
 .Headline {
+	padding: 1em 0;
 	position: relative;
-	width: 100%;
 	text-align: center;
+	width: 100%;
 }
 
 /* Headline lead */
@@ -23,6 +24,30 @@
 	font-weight: 900;
 }
 
+/* Headline sublead */
+
+.Headline-sublead {
+	color: #616161;
+	font-size: 1em;
+	font-weight: 500;
+	line-height: 1.6;
+	max-width: 24rem;
+	padding: .75em 0;
+}
+
+/* Headline sublead link */
+
+.Headline-sublead a {
+	color: #ef5350;
+	text-decoration: none;
+	border-bottom: 1px #ef5350 dotted;
+}
+
+.Headline-sublead a:hover {
+	color: #e53935;
+	border-bottom-style: solid;
+}
+
 @media (min-width: 48em) {
 
 	.Headline {
@@ -34,11 +59,11 @@
 @media (min-width: 60em) {
 
 	.Headline {
-		padding: 3em 1em 0 3em;
+		padding: 2em 1em 0 3em;
 	}
 
 	.Headline-lead {
-		font-size: 3em;
+		font-size: 2.625em;
 	}
 
 	.Headline-lead strong {

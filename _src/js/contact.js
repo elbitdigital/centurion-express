@@ -18,7 +18,7 @@
 
 	form.fields.cName = document.getElementById('cName');
 	// form.fields.cCity = document.getElementById('cCity');
-	// form.fields.cPhone = document.getElementById('cPhone');
+	form.fields.cPhone = document.getElementById('cPhone');
 	form.fields.cEmail = document.getElementById('cEmail');
 	form.fields.cMessage = document.getElementById('cMessage');
 	form.sendButton.viewport = document.getElementById('cSubmit');
@@ -27,18 +27,25 @@
 	form.states = [
 		'is-error',
 		'is-fail',
+		'is-incomplete',
 		'is-sending',
 		'is-success'
 	];
 
-	form.changeState = function (state) {
+	form.changeState = function (state, message) {
 
 		if (form.viewport) {
 
-			for (var i = form.states.length; i--; )
+			for (var i = form.states.length; i--;)
 				form.viewport.classList.remove(form.states[i])
 
 			form.viewport.classList.add(state);
+
+			if (message) {
+
+				document.querySelector("span.ContactFormStatus-text--incomplete").innerText = message;
+
+			}
 
 		}
 
@@ -54,15 +61,15 @@
 
 			// "beforeSend"
 			formLocked = true;
-			form.changeState('is-sending');
+			form.changeState('is-sending', false);
 
 			xhr.ontimeout = function (e) {
 				console.log(e);
-				form.changeState('is-fail');
+				form.changeState('is-fail', false);
 			};
 
 			xhr.onerror = function() {
-				form.changeState('is-error');
+				form.changeState('is-error', false);
 				//form.send(requestData, 5000);
 			};
 
@@ -72,9 +79,9 @@
 
 					if (xhr.status == 200) {
 						console.log(xhr.responseText);
-						form.changeState('is-success');
+						form.changeState('is-success', false);
 					} else {
-						form.changeState('is-error');
+						form.changeState('is-error', false);
 					}
 
 				}
@@ -134,7 +141,7 @@
 
 			if (formSentCount < formSentCountLimit) {
 
-				var allow = !!(form.fields.cName.value && form.fields.cEmail.value && form.fields.cMessage.value);
+				var allow = !!(form.fields.cName.value && (form.fields.cEmail.value || form.fields.cPhone.value) && form.fields.cMessage.value);
 
 				if (allow) {
 
@@ -147,7 +154,7 @@
 					// get object data
 					var requestData = {
 						cName: form.fields.cName.value,
-						cPhone: "",
+						cPhone: form.fields.cPhone.value,
 						cEmail: form.fields.cEmail.value,
 						cAddress: "",
 						cCity: "",
@@ -158,7 +165,15 @@
 					form.send(requestData, false);
 
 				} else {
-					form.changeState('is-error');
+
+					form.changeState('error', false);
+
+					// console.log(requiredFields[0].requiredField.label.viewport.innerText);
+
+					for (var i = 0; i < requiredFields.length; i++)
+						if (requiredFields[i].requiredField.isRequiredOne && requiredFields[i].requiredField.input.viewport.value == "")
+							form.changeState('is-incomplete', "Informe pelo menos um email ou um telefone");
+
 				}
 
 			}

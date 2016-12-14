@@ -1,0 +1,79 @@
+
+/* Cities List */
+
+.CitiesList {
+	max-width: 48em;
+	margin-top: 1em;
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+/* Cities List item */
+
+.CitiesList-item {
+	width: 100%;
+	font-size: 1em;
+	color: #424242;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: .25em 0 .25em 1em;
+	line-height: 2;
+	cursor: default;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.CitiesList-item:hover,
+.CitiesList-item:active {
+	color: #fff;
+	background-color: #ff5252;
+}
+
+@media (min-width: 30em) {
+
+	.CitiesList-item {
+		padding: .25em .5em;
+		border: solid 2px #616161;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		margin: .25em;
+		width: auto;
+	}
+
+	.CitiesList-item:hover,
+	.CitiesList-item:active {
+		border: solid 2px #ff5252;
+	}
+
+}
+
+@media (min-width: 48em) {
+
+	/* Cities List item */
+
+	.CitiesList-item {
+		margin: .5em .5em;
+	}
+
+	.CitiesList {
+		/*-webkit-flex-flow: column wrap;*/
+		/*flex-flow: column wrap;*/
+		/*max-width: 35em;*/
+		/*-webkit-justify-content: space-between;*/
+		/*justify-content: space-between;*/
+	}
+
+}
